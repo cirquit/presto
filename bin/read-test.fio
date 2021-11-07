@@ -1,0 +1,17 @@
+[global]
+rw=randread         ; random reads
+size=200m           ; nrfile/size = actual file size
+numjobs=8           ; we have 8 threads
+loops=1             ; repeat for X times
+group_reporting=1   ; group up all threads reports
+nrfiles=1000        
+;randrepeat=true    ; make the access pattern deterministic
+blocksize=4096      ; the block size for reads in our case
+ioengine=sync       ; best current guess
+
+; write_bw_log=bandwidth
+; write_lat_log=latency
+
+; dir=/home/ubuntu/test-directory
+
+[job1]
