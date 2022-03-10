@@ -2,8 +2,25 @@
 
 **Pre**processing **St**rategy **O**ptimizer is a library for TensorFlow that automates the generic pipelines’ profiling process.
 > Published at SIGMOD '22 (official link when it is uploaded)
-
 > [Where Is My Training Bottleneck? Hidden Trade-Offs in Deep Learning Preprocessing Pipelines](https://arxiv.org/abs/2202.08679) - Arxiv Link
+<details>
+  <summary> Preliminary BibTeX Entry </summary>
+
+```
+@inbook{10.1145/3514221.3517848,
+author = {Isenko, Alexander and Mayer, Ruben and Jeffrey, Jedele and Jacobsen, Hans-Arno},
+title = {Where Is My Training Bottleneck? Hidden Trade-Offs in Deep Learning Preprocessing Pipelines},
+year = {2022},
+isbn = {9781450392495},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3514221.3517848},
+booktitle = {Proceedings of the 2022 International Conference on Management of Data},
+numpages = {15}
+}
+```
+
+</details>
 
 ---
 ### Structure
