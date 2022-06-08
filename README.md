@@ -28,7 +28,7 @@ numpages = {15}
 * [analysis](analysis) - IPython notebooks to create plots/analyse the logs
 * [bin](bin) - scripts to run experiments, setup the environment
 * [cream](cream) - a preprocessing library for the CREAM dataset
-* [images](images) - image directory with the [poster](poster/aisenko-poster-sigmod-2022.pdf)
+* [images](images) - image directory with the [poster](images/aisenko-poster-sigmod-2022.pdf)
 * [logs](logs) - the logging directory, with sample artefacts from the paper for each pipeline
   - Because the logs for the paper take up close to 10GB, please contact the authors for the full logs. The notebooks have prerendered plots already.
 * [presto](presto) - the presto library, use one of the `*_demo.py` pipelines in the root directory for example usage
