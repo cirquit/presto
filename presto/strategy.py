@@ -397,17 +397,17 @@ class Strategy:
     def print_stats(self):
         '''Simple stdout logger to check the self.meta_info dict
         '''
-        print(f"Strategy {self._shard_directory}")
+        print(f"Strategy {self._shard_directory}", flush=True)
         for k,v in self.meta_info.items():
             if k in ["ueid", "creation_timestamp", "split_name", "compression_type", "storage_type", "system_cache_enabled", "application_cache_enabled", "batch_count", "prefetch_count"]:
-                print(f"  - {k} = {v}")
+                print(f"  - {k} = {v}", flush=True)
             elif k in ["runs_count", "runs_total"]:
-                print(f"  - {k} = {v}")
+                print(f"  - {k} = {v}", flush=True)
             else:
                 if v == []:
-                    print(f"  - {k} = 0 +/- 0")
+                    print(f"  - {k} = 0 +/- 0", flush=True)
                 else:
-                    print(f"  - {k} = {round(np.mean(v), 3)} +/- {round(np.std(v), 2)}")
+                    print(f"  - {k} = {round(np.mean(v), 3)} +/- {round(np.std(v), 2)}", flush=True)
 
     def profile_as_df(self):
         '''Converts the meta_info dictionary to a pandas DataFrame

@@ -17,9 +17,11 @@ from imagenet_pipeline import pipeline_definition
 thread_shard_count = int(sys.argv[1])
 compression_type   = str(sys.argv[2])
 
+storage_type = "remote"
+
 source_path = "/dataset/ILSVRC/Data/CLS-LOC"
-target_path = "/tmp/imagenet"
-log_path    = "/log/imagenet"
+target_path = "/tmp"
+log_path    = "/logs"
 
 # define pipeline with the source path
 imagenet_pipeline = pipeline_definition(source_path)

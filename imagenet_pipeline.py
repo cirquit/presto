@@ -20,7 +20,7 @@ def pipeline_definition(src_path: str):
             "name": "list files",
             "type": "source",
             "op": tf.data.Dataset.list_files([
-                src_path + "*/*/*." + ext
+                src_path + "/*/*/*." + ext
                 for ext in ["jpeg", "bmp", "png", "JPEG"]]
 #              , seed = 42
             ),

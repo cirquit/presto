@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 RUN apt update
 # installing necessary packages for python preprocessing
-RUN apt install wget dstat unzip build-essential libsndfile-dev ffmpeg software-properties-common -y
+RUN apt install wget dstat unzip build-essential libsndfile-dev ffmpeg software-properties-common python3.7-distutils -y
 WORKDIR /root/
 # setting up anaconda for python 3.7 on ubuntu18.04
 ENV PATH="/root/miniconda3/bin:${PATH}"
@@ -12,9 +12,8 @@ SHELL ["conda", "run", "-n", "presto", "/bin/bash", "-c"]
 RUN python --version
 COPY requirements.txt /root/requirements.txt
 RUN pip install -r requirements.txt
+RUN pip install --upgrade setuptools
 # run the experiments over the mounted /root/ <-> presto/ directory
-CMD ["./run_imagenet_experiments.sh"]
-
-
-
-
+ENV PATH="/opt/conda/envs/presto/bin:${PATH}"
+WORKDIR /root/presto
+CMD ["conda", "run", "-n", "presto", "./run_imagenet_experiments.sh"]

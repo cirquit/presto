@@ -7,6 +7,6 @@ do
   # comment out the compression configuration you do not need
   for compression in none #ZLIB GZIP
   do
-    python $pythonscript $threadcount $compression 
+    python -u $pythonscript $threadcount $compression 
   done
 done
