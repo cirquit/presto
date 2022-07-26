@@ -34,7 +34,7 @@ shift
 done
 
 if [[ $imagenet -eq 1 ]]; then
-    
+  ./02-experiments/02-01-run-imagenet-experiments.sh    
 fi
 
 echo $imagenet

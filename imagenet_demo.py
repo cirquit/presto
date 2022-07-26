@@ -15,32 +15,11 @@ from presto.strategy import Strategy
 from imagenet_pipeline import pipeline_definition
 
 thread_shard_count = int(sys.argv[1])
-sample_count       = int(sys.argv[2])
-compression_type   = str(sys.argv[3])
-storage_type       = str(sys.argv[4])
+compression_type   = str(sys.argv[2])
 
-# dataset path
-home_path = str(Path.home())
-
-source_path_local = f"{home_path}/Downloads/datasets/imagenet_200k/images"
-target_path_local = "."
-source_path_vm_local = f"{home_path}/imagenet/images"
-target_path_vm_local = f"{home_path}/dataset-profiles"
-source_path_ceph = f"{home_path}/rbgstorage/imagenet/ILSVRC/Data/CLS-LOC/train/"
-target_path_ceph = f"{home_path}/rbgstorage/temp/isenko/dataset-profiles"
-
-if storage_type == "ceph-hdd":
-    source_path = source_path_ceph
-    target_path = target_path_ceph
-elif storage_type == "local-vm-ssd":
-    source_path = source_path_vm_local
-    target_path = target_path_vm_local
-elif storage_type == "local-ssd":
-    source_path = source_path_local
-    target_path = target_path_local
-else:
-    print("Pick a valid storage_type: ceph-hdd, local-vm-ssd, local-ssd")
-    sys.exit(0)
+source_path = "/dataset/ILSVRC/Data/CLS-LOC"
+target_path = "/tmp/imagenet"
+log_path    = "/log/imagenet"
 
 # define pipeline with the source path
 imagenet_pipeline = pipeline_definition(source_path)
@@ -55,7 +34,7 @@ thread_shard_counts = zip(thread_counts, shard_counts)
 
 strategies = [ Strategy(
                   pipeline = imagenet_pipeline
-                , split_position = None if step == 0 else step 
+                , split_position = None if step == 0 else step
                 , shard_count = shard_count
                 , thread_count = thread_count
                 , shard_directory_prefix = f"{target_path}/imagenet-split"
@@ -64,7 +43,7 @@ strategies = [ Strategy(
              for thread_count, shard_count in thread_shard_counts
                  for step in imagenet_pipeline_steps]
 
-sample_counts = [sample_count]
+sample_counts = [500]
 runs_total = 1
 
 for sample_count in sample_counts:
@@ -72,11 +51,11 @@ for sample_count in sample_counts:
         strategy.profile_strategy(sample_count = sample_count
                                        , runs_total = runs_total)
         strategy.print_stats()
-        
+
 strategy_dfs = [strat.profile_as_df()       for strat in strategies]
 dstat_dfs    = [strat.profile_as_dstat_df() for strat in strategies]
 
 strat_analysis = StrategyAnalysis(strategy_dataframes = strategy_dfs
                                 , dstat_dataframes = dstat_dfs)
 
-strat_analysis.save_dfs_as_csv(path="./logs", prefix=f"imagenet-storage-{storage_type}")
+strat_analysis.save_dfs_as_csv(path=log_path, prefix=f"imagenet")

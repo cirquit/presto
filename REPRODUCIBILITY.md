@@ -2,7 +2,7 @@
 
 ### Prerequisites
 
-* An Ubuntu 18.04 box with 8 cores and 80GB memory
+* A Linux box with `unzip` and `tar` installed 
 * Storage with at least 1-2TB space
 * Installed `docker` with `sudo` rights - [Link](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
 * Kaggle account and credentials to download a datasets - [Link](https://www.kaggle.com/account/login?phase=startRegisterTab)
