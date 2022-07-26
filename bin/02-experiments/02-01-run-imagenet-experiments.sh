@@ -12,7 +12,7 @@ docker run -v $PRESTO_PATH:/root/presto/ \
            -v $TEMP_PATH:/tmp/ \
            -v $LOG_PATH:/logs/ \
            -v /proc/sys/vm/drop_caches:/drop_caches \
-           -t \
+           -it \
            imagenet-experiments:v1 
 
 echo "${bold}-- Finished with all imagenet experiments!${normal}"
