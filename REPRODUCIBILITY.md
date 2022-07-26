@@ -3,9 +3,10 @@
 ### Prerequisites
 
 * A Linux box with `unzip` and `tar` installed 
-* Storage with at least 1-2TB space
+* One or more Linux boxes with 8 cores and 80GB memory and `unzip` + `tar` installed
+* Storage with at least 1-2TB space (advisable to have this as a remote storage with 10G up/downlink to run experiments in parallel)
 * Installed `docker` with `sudo` rights - [Link](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
-* Kaggle account and credentials to download a datasets - [Link](https://www.kaggle.com/account/login?phase=startRegisterTab)
+* Kaggle account and credentials to download a dataset - [Link](https://www.kaggle.com/account/login?phase=startRegisterTab)
 
 ### Step 1 - Download datasets
 
@@ -21,6 +22,27 @@ After cloning the repository to the above described node:
 cd presto/bin
 source 00-environment-variables.sh
 ./01-download-datasets.sh # Follow instructions
+```
+
+### Step 2 - Run experiments
+
+The bash script takes one argument that specifies which experiments to run:
+- `all` - runs all experiments sequentially
+- `imagenet`
+- `cubepp`
+- `owt`
+- `cream`
+- `commonvoice`
+- `librispeech`
+- `synthetic`
+
+As some of these take weeks to run, it's advisable to run them in parallel on multiple machines with shared storage.
+Or copy the results from the individual `LOG_PATH` to the machine that will do the final analysis and plots.
+
+```bash
+cd presto/bin
+source 00-environment-variables.sh
+./02-run-experiments.sh <argument>
 ```
 
 
