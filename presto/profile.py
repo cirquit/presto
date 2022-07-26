@@ -16,8 +16,8 @@ def drop_io_cache(page_cache=True, dentries_and_inodes=False):
     if dentries_and_inodes:
         code += 2
 
-    drop_cmd = "echo {} > /proc/sys/vm/drop_caches".format(code)
-    cmd_array = ["sudo", "bash", "-c", drop_cmd]
+    drop_cmd = "echo {} > /drop_caches".format(code)
+    cmd_array = ["bash", "-c", drop_cmd]
 
     try:
         sp.run(cmd_array, check=True)
