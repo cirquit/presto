@@ -4,7 +4,7 @@ bold=$(tput bold)
 normal=$(tput sgr0)
 
 echo "---"
-echo "${bold}1.1.1 Downloading Imagenet...${normal}" 
+echo "${bold}1.1.1 Downloading Imagenet...${normal} (~ 30min)" 
 echo "---"
 read -p "Docker is installed and available without sudo? ${bold}Confim.${normal}" choice
 read -p "Kaggle credentials (kaggle.json) are in ${bold}(...)/presto/bin/kaggle.json? Confirm.${normal}" choice
@@ -23,7 +23,7 @@ cd ${IMAGENET_DATASET_PATH}
 # unzip imagenet-object-localization-challenge.zip
 echo "${bold}-- Finished extraction part 1!"
 
-echo "1.1.3 Extraction Part 2...${normal}"
+echo "1.1.3 Extraction Part 2...${normal} (~ 1-2h)"
 tar xzf imagenet_object_localization_patched2019.tar.gz
 
 echo "${bold}1.1.4 Removing compressed files...${normal}"

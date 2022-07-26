@@ -5,7 +5,7 @@ normal=$(tput sgr0)
 
 URL="https://dataserv.ub.tum.de/s/m1554766/download"
 
-echo "${bold}1.4.1 Downloading CREAM dataset..."
+echo "${bold}1.4.1 Downloading CREAM dataset...(~ 2h)"
 echo "From: ${URL}"
 echo "To: ${CREAM_DATASET_PATH}"
 echo "---${normal}"
@@ -13,7 +13,7 @@ echo "---${normal}"
 wget -q --show-progress ${URL} --no-check-certificate -O ${CREAM_DATASET_PATH}/cream-full.zip
 
 echo "${bold}--- Finished downloading!"
-echo "1.4.2 Extracting...${normal}"
+echo "1.4.2 Extracting...${normal} (~ 2h)"
 
 cd ${CREAM_DATASET_PATH}
 unzip cream-full.zip 
