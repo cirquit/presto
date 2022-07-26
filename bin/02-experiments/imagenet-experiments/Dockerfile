@@ -11,9 +11,10 @@ RUN conda create --name presto python=3.7 -y
 SHELL ["conda", "run", "-n", "presto", "/bin/bash", "-c"]
 RUN python --version
 COPY requirements.txt /root/requirements.txt
-
-# mounted presto/ to /root/ 
 RUN pip install -r requirements.txt
+# run the experiments over the mounted /root/ <-> presto/ directory
+CMD ["./run_imagenet_experiments.sh"]
+
 
 
 
