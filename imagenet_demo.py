@@ -20,7 +20,7 @@ compression_type   = str(sys.argv[2])
 
 storage_type = "remote"
 
-source_path = "/dataset/ILSVRC/Data/CLS-LOC"
+source_path = "/dataset/ILSVRC/Data/CLS-LOC/train"
 target_path = "/tmp"
 log_path    = "/logs"
 
