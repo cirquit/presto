@@ -2,7 +2,7 @@
 
 # usage: ./concat-csv-log-files.sh [cum-df,cum-dstat-df] > newfile.csv
 
-CSV_FILES_SH="ls | grep csv | grep $1"
+CSV_FILES_SH="ls | grep csv | grep $1 | grep -v full"
 FILES=$(eval $CSV_FILES_SH)
   
 FIRST_FILE=$(echo $FILES | head -n 1)

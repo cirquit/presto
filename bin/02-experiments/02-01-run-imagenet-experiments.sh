@@ -7,6 +7,7 @@ echo "---"
 echo "${bold}2.1.1 Running Imagenet experiments...${normal}" 
 cd ./02-experiments/imagenet-experiments
 docker build -t imagenet-experiments:v1 .
+echo "${bold}Docker Image built, starting the container...${normal}"
 docker run -v $PRESTO_PATH:/root/presto/ \
            -v $IMAGENET_DATASET_PATH:/dataset/ \
            -v $TEMP_PATH:/tmp/ \
