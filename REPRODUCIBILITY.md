@@ -46,3 +46,11 @@ source 00-environment-variables.sh
 ```
 
 
+### Step 5 - Compile the paper
+
+```
+cd bin
+./05-compile-paper.sh
+scp <target-vm>:<presto-path>/paper/main.pdf .
+```
+
