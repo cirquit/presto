@@ -90,7 +90,7 @@ def save_figure(name, local_fig_dir, dpi=300, file_type="pdf"):
     :param name: str - name of the pdf figure (e.g., "throughput")
     :param local_fig_dir: str - plots are saved under a subdirectory based on the pipeline (e.g., "image-pipeline")
     '''
-    figure_path   = os.getenv("SUBMISSION_FIGURES_PATH")
+    figure_path   = "/submission/"
     full_fig_dir  = figure_path + "/" + local_fig_dir
     full_fig_path = full_fig_dir + "/" + name + "." + file_type
     plt.savefig(full_fig_path, dpi=dpi, bbox_inches = "tight")

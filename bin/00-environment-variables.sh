@@ -1,16 +1,18 @@
-# modify me
+# !! modify me
 export PRESTO_PATH="/home/ubuntu/presto"
-# modify me
+# !! modify me
 export DATASETS_PATH="/mnt/ceph-storage/temp/isenko/temp"
 mkdir -p $DATASETS_PATH
-# modify me
+# !! modify me
 export TEMP_PATH="/mnt/ceph-storage/temp/isenko/temp/strategies"
 mkdir -p $TEMP_PATH
-# modify me
+# !! modify me
 export LOG_PATH="/mnt/ceph-storage/temp/isenko/temp/logs"
 mkdir -p $LOG_PATH
 
+# ---- no modification from this point onwards
 
+# based on the repository structure
 export SUBMISSION_FIGURES_PATH="$PRESTO_PATH/paper/figures"
 
 # create dataset paths
