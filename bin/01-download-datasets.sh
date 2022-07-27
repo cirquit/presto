@@ -3,6 +3,13 @@
 bold=$(tput bold)
 normal=$(tput sgr0)
 
+if [ -z ${PRESTO_PATH+x} ]; then
+  echo "${bold}Error:${normal} PRESTO_PATH is not set"
+  echo "Please run \"source 00-environment-variables.sh\""
+  exit 1
+fi
+
+
 echo "${bold}1. Downloading the following datasets${normal}"
 echo " - 1.1 ILSVRC2012  - 309.0GB compressed + 157.0GB uncompressed - via docker"
 echo " - 1.2 Cube++      -  84.0GB compressed +  84.5GB uncompressed - automatic"

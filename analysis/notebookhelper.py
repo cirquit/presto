@@ -19,12 +19,12 @@ def show_values_on_catplot(plot, axiscount, height, rotation='10', skip=None):
             if org_height > 1000:
                 text = str(round(org_height / 1000,1)) + "K"
             else:
-                text = str(int(org_height))          
-            ax.text(p.get_x() - 0.01, 
-                    p.get_height() + additional_height, 
+                text = str(int(org_height))
+            ax.text(p.get_x() - 0.01,
+                    p.get_height() + additional_height,
                     text,
-                    color='black', 
-                    rotation=rotation, 
+                    color='black',
+                    rotation=rotation,
                     size='large')
 
 
@@ -90,7 +90,7 @@ def save_figure(name, local_fig_dir, dpi=300, file_type="pdf"):
     :param name: str - name of the pdf figure (e.g., "throughput")
     :param local_fig_dir: str - plots are saved under a subdirectory based on the pipeline (e.g., "image-pipeline")
     '''
-    figure_path   = "/home/asa/Documents/github-repos/thesis/sigmod-2022-submission/figures"
+    figure_path   = os.getenv("SUBMISSION_FIGURES_PATH")
     full_fig_dir  = figure_path + "/" + local_fig_dir
     full_fig_path = full_fig_dir + "/" + name + "." + file_type
     plt.savefig(full_fig_path, dpi=dpi, bbox_inches = "tight")

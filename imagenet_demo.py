@@ -4,6 +4,7 @@ import time
 import numpy as np
 import pandas as pd
 import seaborn as sns
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
 import matplotlib.pylab as plt
 from pathlib import Path
