@@ -40,7 +40,7 @@ shift
 done
 
 if [[ $imagenet -eq 1 ]]; then
-  ./03-summarize-logs/03-01-prepare-imagenet-logs.sh
+  ./04-run-notebooks/04-01-create-imagenet-plots.sh
 fi
 
 #echo $imagenet
