@@ -4,15 +4,15 @@ bold=$(tput bold)
 normal=$(tput sgr0)
 
 echo "---"
-echo "${bold}2.1.1 Running Imagenet experiments...${normal}" 
-cd ./02-experiments/imagenet-experiments
-docker build -t imagenet-experiments:v1 .
+echo "${bold}4.1 Creating Imagenet plots...${normal}" 
+cd ./plot-figures/imagenet-notebook
+docker build -t imagenet-notebook:v1 .
 echo "${bold}Docker Image built, starting the container...${normal}"
 docker run -v $PRESTO_PATH:/root/presto/ \
            -v $IMAGENET_DATASET_PATH:/dataset/ \
            -v $TEMP_PATH:/tmp/ \
            -v $IMAGENET_LOG_PATH:/logs/ \
-           -v /proc/sys/vm/drop_caches:/drop_caches \
+           -v $SUBMISSION_FIGURES_PATH:/submission/ \
            -it \
-           imagenet-experiments:v1 
-echo "${bold}-- Finished with all imagenet experiments!${normal}"
+           imagenet-notebook:v1 
+echo "${bold}-- Finished with creating all imagenet plots!${normal}"

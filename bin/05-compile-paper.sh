@@ -3,7 +3,7 @@
 bold=$(tput bold)
 normal=$(tput sgr0)
 
-echo "${bold} 5. Compiling the final paper${normal}"
+echo "${bold}5. Compiling the final paper${normal}"
 echo "Downloading a Latex Docker image..."
 cd ../paper
 
@@ -13,5 +13,6 @@ if [ ! -f latexdockercmd.sh ]; then
 fi
 ./latexdockercmd.sh /bin/sh -c "pdflatex -shell-escape --interaction=batchmode main 2>&1 > /dev/null && bibtex main && bibtex main"
 ./latexdockercmd.sh /bin/sh -c "pdflatex -shell-escape --interaction=batchmode main 2>&1 > /dev/null && pdflatex -shell-escape --interaction=batchmode main 2>&1"
+make clean
 echo "Paper should be saved at:${bold} $PRESTO_PATH/paper/main.pdf ${normal}"
 echo "${bold}-- Finished compiling paper!${normal}"

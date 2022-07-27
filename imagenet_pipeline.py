@@ -22,7 +22,7 @@ def pipeline_definition(src_path: str):
             "op": tf.data.Dataset.list_files([
                 src_path + "/*/*." + ext
                 for ext in ["jpeg", "bmp", "png", "JPEG"]]
-#              , seed = 42
+              , seed = 42
             ),
             "output_schema": tf.TensorSpec([], tf.string)
         },

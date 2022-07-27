@@ -47,12 +47,13 @@ strategies = [ Strategy(
                  for step in imagenet_pipeline_steps]
 
 sample_counts = [500]
-runs_total = 1
+runs_total = 2
 
 for sample_count in sample_counts:
     for strategy in strategies:
         strategy.profile_strategy(sample_count = sample_count
-                                       , runs_total = runs_total)
+                                , runs_total = runs_total
+                                , system_cache_enabled = True)
         strategy.print_stats()
 
 strategy_dfs = [strat.profile_as_df()       for strat in strategies]

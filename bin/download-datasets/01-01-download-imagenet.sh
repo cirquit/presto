@@ -13,7 +13,7 @@ echo "Starting docker container to download the
 https://www.kaggle.com/competitions/imagenet-object-localization-challenge/data dataset"
 
 cp kaggle.json 01-datasets/imagenet-docker/kaggle.json
-cd ./01-datasets/imagenet-docker/
+cd ./download-datasets/imagenet-docker/
 docker build -t kaggle-imagenet-downloader:v1 .
 docker run -v $IMAGENET_DATASET_PATH:/tmp/ kaggle-imagenet-downloader:v1 
 
