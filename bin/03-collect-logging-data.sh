@@ -40,7 +40,7 @@ shift
 done
 
 if [[ $imagenet -eq 1 ]]; then
-  ./03-data-preparation/03-01-prepare-imagenet-logs.sh
+  ./03-summarize-logs/03-01-prepare-imagenet-logs.sh
 fi
 
 #echo $imagenet
