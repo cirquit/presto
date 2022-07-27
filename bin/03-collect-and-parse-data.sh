@@ -26,21 +26,21 @@ run_all_experiments()
 while [ -n "$1" ]
 do
 case "$1" in
-    all)         echo "Running all experiments..."; run_all_experiments; break ;;
-    imagenet)    echo "Running imagenet..."; imagenet=1;;
-    cubepp)      echo "Running cubepp..."; cubepp=1 ;;
-    owt)         echo "Running owt..."; owt=1 ;;
-    cream)       echo "Running cream..."; cream=1;;
-    commonvoice) echo "Running commonvoice..."; commonvoice=1 ;;
-    librispeech) echo "Running librispeech..."; librispeech=1 ;;
-    synthetic)   echo "Running synthetic..."; synthetic=1 ;;
+    all)         echo "Preparing data for all experiments..."; run_all_experiments; break ;;
+    imagenet)    echo "Preparing imagenet..."; imagenet=1;;
+    cubepp)      echo "Preparing cubepp..."; cubepp=1 ;;
+    owt)         echo "Preparing owt..."; owt=1 ;;
+    cream)       echo "Preparing cream..."; cream=1;;
+    commonvoice) echo "Preparing commonvoice..."; commonvoice=1 ;;
+    librispeech) echo "Preparing librispeech..."; librispeech=1 ;;
+    synthetic)   echo "Preparing synthetic..."; synthetic=1 ;;
     *) echo "$1 is not an option"; break ;;
 esac
 shift
 done
 
 if [[ $imagenet -eq 1 ]]; then
-  ./02-experiments/02-01-run-imagenet-experiments.sh    
+  ./03-data-preparation/03-01-prepare-imagenet-logs.sh
 fi
 
 #echo $imagenet

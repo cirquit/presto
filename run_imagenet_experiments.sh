@@ -10,3 +10,5 @@ do
     python -u $pythonscript $threadcount $compression 
   done
 done
+
+rm -rf /tmp/imagenet*

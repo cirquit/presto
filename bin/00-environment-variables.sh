@@ -12,6 +12,8 @@ mkdir -p $LOG_PATH
 
 
 export SUBMISSION_FIGURES_PATH="$PRESTO_PATH/paper/figures"
+
+# create dataset paths
 export IMAGENET_DATASET_PATH="${DATASETS_PATH}/imagenet"
 mkdir -p ${IMAGENET_DATASET_PATH}
 export CUBEPP_DATASET_PATH="${DATASETS_PATH}/cube++"
@@ -24,3 +26,18 @@ export COMMONVOICE_DATASET_PATH="${DATASETS_PATH}/commonvoice"
 mkdir -p ${COMMONVOICE_DATASET_PATH}
 export LIBRISPEECH_DATASET_PATH="${DATASETS_PATH}/librispeech"
 mkdir -p ${LIBRISPEECH_DATASET_PATH}
+
+# create log paths
+export IMAGENET_LOG_PATH="${LOG_PATH}/imagenet"
+mkdir -p ${IMAGENET_LOG_PATH}
+export CUBEPP_LOG_PATH="${LOG_PATH}/cube++"
+mkdir -p ${CUBEPP_LOG_PATH}
+export OWT_LOG_PATH="${LOG_PATH}/openwebtext"
+mkdir -p ${OWT_LOG_PATH}
+export CREAM_LOG_PATH="${LOG_PATH}/cream"
+mkdir -p ${CREAM_LOG_PATH}
+export COMMONVOICE_LOG_PATH="${LOG_PATH}/commonvoice"
+mkdir -p ${COMMONVOICE_LOG_PATH}
+export LIBRISPEECH_LOG_PATH="${LOG_PATH}/librispeech"
+mkdir -p ${LIBRISPEECH_LOG_PATH}
+
