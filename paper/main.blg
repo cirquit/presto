@@ -1,5 +1,5 @@
-This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: ACM-Reference-Format.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -20,25 +20,25 @@ Warning--entry type for "10.17487/RFC1950" isn't style-file defined
 --line 2850 of file main.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
-while executing---line 2783 of file ACM-Reference-Format.bst
+while executing---line 2895 of file ACM-Reference-Format.bst
 Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
-while executing---line 2783 of file ACM-Reference-Format.bst
+while executing---line 2895 of file ACM-Reference-Format.bst
 Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
-while executing---line 2783 of file ACM-Reference-Format.bst
+while executing---line 2895 of file ACM-Reference-Format.bst
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
-Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
-while executing---line 2844 of file ACM-Reference-Format.bst
+while executing---line 2956 of file ACM-Reference-Format.bst
 Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
-while executing---line 2844 of file ACM-Reference-Format.bst
+while executing---line 2956 of file ACM-Reference-Format.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
-while executing---line 2942 of file ACM-Reference-Format.bst
+while executing---line 3054 of file ACM-Reference-Format.bst
 Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
-while executing---line 2942 of file ACM-Reference-Format.bst
+while executing---line 3054 of file ACM-Reference-Format.bst
 Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
-while executing---line 2942 of file ACM-Reference-Format.bst
+while executing---line 3054 of file ACM-Reference-Format.bst
 Warning--empty publisher in amodei2016deep
 Warning--no number and no volume in ardila2019common
 Warning--page numbers missing in both pages and numpages fields in ardila2019common
@@ -162,37 +162,37 @@ Warning--can't use both volume and number fields in zhu2018novel
 Warning--empty publisher in zhu2018novel
 Warning--empty address in zhu2018novel
 You've used 99 entries,
-            5897 wiz_defined-function locations,
-            2020 strings with 39532 characters,
-and the built_in function-call counts, 121280 in all, are:
-= -- 14130
+            5959 wiz_defined-function locations,
+            2169 strings with 42802 characters,
+and the built_in function-call counts, 121606 in all, are:
+= -- 14133
 > -- 5796
 < -- 0
 + -- 1976
 - -- 1960
-* -- 9565
+* -- 9569
 := -- 13016
 add.period$ -- 496
 call.type$ -- 99
 change.case$ -- 847
 chr.to.int$ -- 95
 cite$ -- 221
-duplicate$ -- 10051
-empty$ -- 7066
+duplicate$ -- 10113
+empty$ -- 7131
 format.name$ -- 2265
-if$ -- 28510
+if$ -- 28640
 int.to.chr$ -- 6
 int.to.str$ -- 1
 missing$ -- 340
 newline$ -- 884
 num.names$ -- 726
-pop$ -- 4068
+pop$ -- 4127
 preamble$ -- 1
 purify$ -- 1722
 quote$ -- 0
 skip$ -- 3588
 stack$ -- 0
-substring$ -- 7917
+substring$ -- 7920
 swap$ -- 1001
 text.length$ -- 0
 text.prefix$ -- 0

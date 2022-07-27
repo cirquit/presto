@@ -9,12 +9,9 @@ mkdir -p $TEMP_PATH
 # modify me
 export LOG_PATH="/mnt/ceph-storage/temp/isenko/temp/logs"
 mkdir -p $LOG_PATH
-# modify me
-export SUBMISSION_FIGURES_PATH="/mnt/ceph-storage/temp/isenko/temp"
-mkdir -p $SUBMISSION_FIGURES_PATH
 
 
-
+export SUBMISSION_FIGURES_PATH="$PRESTO_PATH/paper/figures"
 export IMAGENET_DATASET_PATH="${DATASETS_PATH}/imagenet"
 mkdir -p ${IMAGENET_DATASET_PATH}
 export CUBEPP_DATASET_PATH="${DATASETS_PATH}/cube++"
