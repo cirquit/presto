@@ -17,6 +17,8 @@ from imagenet_pipeline import pipeline_definition
 
 thread_shard_count = int(sys.argv[1])
 compression_type   = str(sys.argv[2])
+sample_count       = int(sys.argv[3])
+runs               = int(sys.argv[4])
 
 storage_type = "remote"
 
@@ -46,8 +48,8 @@ strategies = [ Strategy(
              for thread_count, shard_count in thread_shard_counts
                  for step in imagenet_pipeline_steps]
 
-sample_counts = [500]
-runs_total = 2
+sample_counts = [sample_count]
+runs_total = runs
 
 for sample_count in sample_counts:
     for strategy in strategies:
