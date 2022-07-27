@@ -1,0 +1,14 @@
+This paper presents an analysis of seven concrete DL pipelines based on their typical preprocessing steps from CV, NLP, NILM, and the Audio domain.
+We provide a profiling library, PRESTO, that helps with detecting bottlenecks and automatically decide which preprocessing strategy is the most efficient based on an {\color{diff2}objective function}.
+We show that not preprocessing the dataset before training is never the best solution for all pipelines, and fully preprocessing can affect the final preprocessing throughput negatively due to problems relating to I/O and storage consumption.
+Alternatively, we propose different strategies that increase the CV pipeline throughput by {\color{diff2}$3\times$ and NLP by $13\times$} while reducing their storage consumption compared to the fully preprocessed dataset.
+We provide insights into how storage consumption, {\color{diff2}different caching level and compression affect} the preprocessing pipeline and how they can pinpoint where bottlenecks are formed.
+While multi-threading could be an effective way to speed up preprocessing, we show that using an intermediate preprocessing strategy is significantly more impactful to reduce processing time.
+Finally, we provide an intuition about profiling the preprocessing pipelines effectively by summarizing the generated insights to mitigate future bottlenecks in deep learning pipelines.
+
+
+%First, we explain the reasons why we look into preprocessing pipelines for DL.
+%&Then, we propose a formalized view of the general DL preprocessing pipeline.
+%We develop a library that provides a clear way to split preprocessing pipelines and compare them with each other.
+%In the next step, we profile five concrete DL pipelines, based on their typical preprocessing steps, from CV, NLP, NILM, MP3, and FLAC.
+%Future work might include a more advanced cost model which is not only based on throughput, storage consumption, and preprocessing time but hardware costs of cloud providers. This could help optimize both the pipeline placement for cloud provides as well as cost savings for practitioners.

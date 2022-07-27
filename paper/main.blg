@@ -1,0 +1,205 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: main.bib
+You're missing a field part---line 2261 of file main.bib
+ :   number = 
+ :            ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 2809 of file main.bib
+ :   year={2010}
+ :              a
+I'm skipping whatever remains of this entry
+Warning--entry type for "10.17487/RFC1952" isn't style-file defined
+--line 2837 of file main.bib
+Warning--entry type for "10.17487/RFC1950" isn't style-file defined
+--line 2850 of file main.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
+while executing---line 2783 of file ACM-Reference-Format.bst
+Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
+while executing---line 2783 of file ACM-Reference-Format.bst
+Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
+while executing---line 2783 of file ACM-Reference-Format.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
+while executing---line 2844 of file ACM-Reference-Format.bst
+Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
+while executing---line 2844 of file ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
+while executing---line 2942 of file ACM-Reference-Format.bst
+Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
+while executing---line 2942 of file ACM-Reference-Format.bst
+Too many commas in name 1 of "Aaron Gokaslan, Vanya Cohen, Ellie Pavlick, Stefanie Tellex" for entry Gokaslan2019OpenWeb
+while executing---line 2942 of file ACM-Reference-Format.bst
+Warning--empty publisher in amodei2016deep
+Warning--no number and no volume in ardila2019common
+Warning--page numbers missing in both pages and numpages fields in ardila2019common
+Warning--empty publisher in banko2001scaling
+Warning--empty address in banko2001scaling
+Warning--no number and no volume in barsim2014unsupervised
+Warning--page numbers missing in both pages and numpages fields in barsim2014unsupervised
+Warning--empty organization in callan2009clueweb09
+Warning--no number and no volume in chelba2013billion
+Warning--page numbers missing in both pages and numpages fields in chelba2013billion
+Warning--no number and no volume in Chien_2018
+Warning--page numbers missing in both pages and numpages fields in Chien_2018
+Warning--page numbers missing in both pages and numpages fields in de2020random
+Warning--empty publisher in deng2009imagenet
+Warning--empty address in deng2009imagenet
+Warning--empty organization in sysbench
+Warning--empty organization in fio
+Warning--empty organization in pascal-voc-2009
+Warning--page numbers missing in both pages and numpages fields in everingham2011pascal
+Warning--empty publisher in fei2004learning
+Warning--empty address in fei2004learning
+Warning--empty publisher in gabriel2004open
+Warning--empty address in gabriel2004open
+Warning--page numbers missing in both pages and numpages fields in griffin2007caltech
+Warning--no number and no volume in han2015deep
+Warning--page numbers missing in both pages and numpages fields in han2015deep
+Warning--no number and no volume in hannun2014deep
+Warning--page numbers missing in both pages and numpages fields in hannun2014deep
+Warning--empty publisher in haochen2019random
+Warning--empty address in haochen2019random
+Warning--empty publisher in he2017mask
+Warning--empty address in he2017mask
+Warning--empty publisher in he2016deep
+Warning--empty address in he2016deep
+Warning--no number and no volume in huzaifah2017comparison
+Warning--page numbers missing in both pages and numpages fields in huzaifah2017comparison
+Warning--empty publisher in jager2018parallelized
+Warning--empty address in jager2018parallelized
+Warning--no number and no volume in Jeon2018
+Warning--page numbers missing in both pages and numpages fields in Jeon2018
+Warning--empty publisher in Jia2019
+Warning--empty address in Jia2019
+Warning--empty publisher in jorde2019meed
+Warning--empty address in jorde2019meed
+Warning--empty publisher in kahl2017comprehensive
+Warning--empty address in kahl2017comprehensive
+Warning--empty publisher in kakaraparthy2019case
+Warning--empty address in kakaraparthy2019case
+Warning--page numbers missing in both pages and numpages fields in kakaraparthy2019case
+Warning--no journal in kang2020jointly
+Warning--no number and no volume in kang2020jointly
+Warning--empty publisher in kingma2014adam
+Warning--empty address in kingma2014adam
+Warning--page numbers missing in both pages and numpages fields in kingma2014adam
+Warning--no number and no volume in OpenImages2
+Warning--page numbers missing in both pages and numpages fields in OpenImages2
+Warning--no number and no volume in krizhevsky2009learning
+Warning--page numbers missing in both pages and numpages fields in krizhevsky2009learning
+Warning--empty address in krizhevsky2012imagenet
+Warning--empty publisher in lai2015simultaneous
+Warning--empty address in lai2015simultaneous
+Warning--empty publisher in li2020parallel
+Warning--empty address in li2020parallel
+Warning--empty publisher in lin2014microsoft
+Warning--empty address in lin2014microsoft
+Warning--empty publisher in micikevicius2017mixed
+Warning--empty address in micikevicius2017mixed
+Warning--page numbers missing in both pages and numpages fields in micikevicius2017mixed
+Warning--no number and no volume in mikolov2013efficient
+Warning--page numbers missing in both pages and numpages fields in mikolov2013efficient
+Warning--no number and no volume in murray2021tf
+Warning--page numbers missing in both pages and numpages fields in murray2021tf
+Warning--empty organization in newspaper2020
+Warning--empty publisher in ozeri2018object
+Warning--empty address in ozeri2018object
+Warning--empty publisher in panayotov2015librispeech
+Warning--empty address in panayotov2015librispeech
+Warning--empty organization in giga5
+Warning--empty address in paszke2019pytorch
+Warning--no number and no volume in ra2018understanding
+Warning--page numbers missing in both pages and numpages fields in ra2018understanding
+Warning--no number and no volume in radford2018improving
+Warning--page numbers missing in both pages and numpages fields in radford2018improving
+Warning--empty year in ren2019performance
+Warning--no journal in ren2019performance
+Warning--no number and no volume in ren2019performance
+Warning--page numbers missing in both pages and numpages fields in ren2019performance
+Warning--no number and no volume in sergeev2018horovod
+Warning--page numbers missing in both pages and numpages fields in sergeev2018horovod
+Warning--empty publisher in Simonyan15
+Warning--empty address in Simonyan15
+Warning--page numbers missing in both pages and numpages fields in Simonyan15
+Warning--empty publisher in solovyev2020deep
+Warning--empty address in solovyev2020deep
+Warning--empty publisher in szegedy2015going
+Warning--empty address in szegedy2015going
+Warning--empty publisher in szegedy2015rethinking
+Warning--empty address in szegedy2015rethinking
+Warning--empty organization in fuse2018
+Warning--empty publisher in trung2014event
+Warning--empty address in trung2014event
+Warning--page numbers missing in both pages and numpages fields in trung2014event
+Warning--empty publisher in vinyals2015show
+Warning--empty address in vinyals2015show
+Warning--no number and no volume in vishnu2016distributed
+Warning--page numbers missing in both pages and numpages fields in vishnu2016distributed
+Warning--no journal in 10.1145/3147.3165
+Warning--empty publisher in weil2006ceph
+Warning--empty address in weil2006ceph
+Warning--empty publisher in mckinney-proc-scipy-2010
+Warning--empty address in mckinney-proc-scipy-2010
+Warning--no number and no volume in ying2018image
+Warning--page numbers missing in both pages and numpages fields in ying2018image
+Warning--empty publisher in zeiler2013visualizing
+Warning--empty address in zeiler2013visualizing
+Warning--empty publisher in zhu2018entropy
+Warning--empty address in zhu2018entropy
+Warning--empty publisher in zhu2015aligning
+Warning--empty address in zhu2015aligning
+Warning--can't use both volume and number fields in zhu2018novel
+Warning--empty publisher in zhu2018novel
+Warning--empty address in zhu2018novel
+You've used 99 entries,
+            5897 wiz_defined-function locations,
+            2020 strings with 39532 characters,
+and the built_in function-call counts, 121280 in all, are:
+= -- 14130
+> -- 5796
+< -- 0
++ -- 1976
+- -- 1960
+* -- 9565
+:= -- 13016
+add.period$ -- 496
+call.type$ -- 99
+change.case$ -- 847
+chr.to.int$ -- 95
+cite$ -- 221
+duplicate$ -- 10051
+empty$ -- 7066
+format.name$ -- 2265
+if$ -- 28510
+int.to.chr$ -- 6
+int.to.str$ -- 1
+missing$ -- 340
+newline$ -- 884
+num.names$ -- 726
+pop$ -- 4068
+preamble$ -- 1
+purify$ -- 1722
+quote$ -- 0
+skip$ -- 3588
+stack$ -- 0
+substring$ -- 7917
+swap$ -- 1001
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 2442
+warning$ -- 122
+while$ -- 607
+width$ -- 0
+write$ -- 1762
+(There were 10 error messages)

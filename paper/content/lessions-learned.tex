@@ -1,0 +1,91 @@
+% elaborate on when compression might make the dataset fit into memory to help with system-level caching
+% argue what kind of throughput the last strategy potentially could have compared to the best (resized), because we know that there's not bottleneck. Do the same for BPE but with a bottleneck.
+
+%Strategienauswahl ist nicht trivial, oder offensichtlich. Du sollstest immer profilen. Storage Consumption spielt ne große Rolle, sowohl gesamt als auch per sample, unterschiedliche einflüsse. 
+%Adding processing steps that reduce the data size can increase the peak throughput.
+%Kleine samples haben einen fixen overhead, der amortisiert sich über große Sample per storage. 
+
+%Multithreading ist gut, kann aber aus verschiedenen Gründen schlecht performen, z.B per sample größe, oder implementierungsaspekte. Der best skalierende Schritt ist nicht der schnelleste. Cite COST paper, which shows that speedup is not the same as a good performance.
+
+%App-Caching ist super, versuch es passen zu lassen. 
+
+%Compression ist super, wenn wir kein CPU bottleneck haben und sehr gut compressen können (80%) (berechnet durchschnittlichen speedup).
+We find it important to summarize our findings more generically for both DevOps and ML practitioners so that they can use the PRESTO library and the generated insights for future analysis. These lessons are based on the analysis in Section~\ref{sec:analysis}.
+
+\textbf{(1) Storage consumption is an important characteristic when estimating throughput. }
+We gravely underestimated the effect of storage consumption before conducting this study.
+The impact of storage consumption is a multi-faceted one, as it affects the storage hardware, its interconnects, the deserialization process and multi-threading capabilities.
+{\color{diff2} 
+A small total storage consumption performs best if not throttled by a CPU bottleneck, and steps that reduce data size should be prioritized when searching for the best performing strategy.
+However, small sample sizes ($\leq 0.08$\:MB) increase the online processing time dramatically irregardless of reading from storage or from memory and can be a reason for an underutilized I/O bandwidth.
+These two observations combined are the reason why fully preprocessed datasets did not yield the best throughput in 4 (CV, CV2-PNG, CV2-JPG, NLP) out of 7 pipelines.
+}
+
+{\color{diff2} 
+\textbf{(2) Multi-threading usually improves throughput, but the speedup can be limited for various reasons. }}
+Parallel execution of a pipeline is not a silver bullet when trying to speed up preprocessing.
+{\color{diff2}
+First of all, various issues can impede parallel speedup, such as calling external Python libraries or dealing with extremely short-running preprocessing tasks at small sample sizes.
+But even when parallel speedup of a strategy is reasonably good, a different strategy with a lower data volume to be read from storage may perform much better.
+}
+
+{\color{diff2} 
+\textbf{(3) It is recommended to use application-level caching whenever possible. }
+Whenever the dataset fits into memory, application-level caching increased the throughput in our experiments by up to 15$\times$ with a high sample size.
+Application-level caching improved the throughput compared to system-level caching by a factor of 1.3-4.6$\times$, and should be preferred as the deserialization of cached files can slow down the pipeline.
+}
+
+{\color{diff2} 
+\textbf{(4) Compression can be useful when not facing a CPU bottleneck. }
+Compression can increase the throughput by a factor of 1.6-2.4$\times$ under few conditions: a high enough space saving of 73-93\% and the absence of computationally expensive processing steps.
+However, estimating the space saving, as well as the decompression time is hard.
+Additionally, applying compression can increase the offline processing time between 1.1$\times$ and 13.5$\times$ compared to no compression.
+The overheads of compression should be taken into account and carefully weighted against I/O savings.
+}
+
+
+% \textbf{(1) Storage consumption is an important characteristic\\ when estimating throughput.}
+
+% We gravely underestimated the effect of storage consumption before conducting this study. However, it became apparent after we saw the throughput decline in both CV and NLP pipelines with their last strategies. The impact of storage consumption is a multi-faceted one, as it affects the storage hardware, its interconnects, the file system, and the deserialization process.
+% Some preprocessing strategies are made infeasible due to a massive increase in storage consumption $64\times$ compared to the initial dataset (NLP).
+% Likewise, a preprocessing strategy that decreases the storage consumption compared to its predecessing strategy will always provide higher throughput.
+% Therefore we recommend prioritizing preprocessing steps when looking for a suitable strategy, like \texttt{resize} in CV or \texttt{phased-processing} in NILM, which reduce the data size of each sample.
+% Applying the steps that reduce the storage consumption consecutively should provide the best throughput.
+
+
+% \textbf{(2) Multi-threaded execution can improve throughput but is not as effective as using the optimal strategy.}
+
+% Parallel execution of a pipeline is not a silver bullet when trying to speed up preprocessing.
+% Some steps did not show a significant throughput increase when executed with multiple threads due to a small storage consumption per sample.
+% When they did, it was low-performing strategies that, in the worst case, only reached up 0.03\% of the throughput compared to the best performing strategy with a single thread (FLAC \texttt{spectrogram-encoded} vs. \texttt{unprocessed}).
+% From our observations, using the better performing preprocessing strategy is always more effective than trying to speed up the computations through multi-threaded execution.
+
+%\textbf{(3) Profiling multiple sample sizes provides essential information about the trend and the inner workings of a step.}
+
+%Finally, profiling with different sample sizes is helpful to detect the trend of each preprocessing strategy. If there is a difference in the profiled throughput, there are likely scaling characteristics to the strategy, which will affect the pipeline when executed with the entire dataset. We recommend running experiments with additional sample sizes in such a scenario until the trend estimate can be substantiated.
+
+% {\color{red!80}
+% While we do not run a single pipeline on multiple nodes, we want to argue the case as to why our results should generalize to distributed processing.
+% Using storage consumption as an indicator for bottlenecks should prove to be more effective as the network communication between the worker nodes is bound by the amount of data to be sent.
+% Multithreading will still not have as big of an impact on the preprocessing time compared to using a better strategy, as every worker will experience that by itself. 
+% Profiling multiple sample sizes will be even more critical to test out the network latency and throughput, which is dependent on the storage consumption.
+% An opportunity is to analyze how many workers are needed for specific preprocessing steps and datasets to find a good trade-off between communication overhead and increase computational resources.
+% }
+
+
+% \begin{itemize}
+%     \item high storage consumption affects I/O -> bad throughput
+%     %\item high storage consumption hints a preprocessing bottlenecks -> bad throughput
+%     \item low storage consumption in a successive strategy? -> always better throughput
+%     \item parallelization is shitty generally, even for native TF operations, and for decoding as well
+%     %\item decoding needs to be looked into, seems fishy
+%     \item extrapolation needs to be done with the preprocessing step and the heterogenity in mind, so we can not provide them with a generic sample count. 'it depends'' basically
+% \end{itemize}
+
+
+
+%Our goals for this methodology were to create a step-by-step guide for how to evaluate the general performance of a end-to-end DL pipeline, estimate its $T_4$ and $T_M$ throughputs and determine where the performance bottlenecks are located. This is necessary in order to improve GPU utilization and effective hardware utilization, which in turn translates into reducing hardware costs. In case of a dedicated hardware setup, such as on-premise, the pipeline can be tuned to allow computationally intense jobs to run which were previously not possible. In case of a cloud-based setup, the costs can be cut down by provisioning hardware which fits the use-case by estimating the needs prior to engaging in model tuning. Even small improvements in pipelines are effectively multiplied by the total number of epochs.
+
+
+
+%Unlike what we expected from current practices~\cite{nvidiabenchmarks2020}, the \texttt{full} materialization strategy is only the best solution for three out of the five pipelines on our hardware configuration. TODO % The bottleneck for the CV pipeline is located by looking at the storage consumption, which points to disk read rates and dataset serialization problems. Likewise for NLP, the bottleneck could be found by comparing both the unusually high storage consumption and the preprocessing time, which led us to a software bottleneck. The relative storage consumption increase of the datasets for the CV pipeline from \texttt{unprocessed} to \texttt{full} was $9.5\times$, and $15\times$ for the NLP pipeline. These results show that different materialization strategies can have a huge impact on hardware utilization and throughput of the end-to-end DL pipeline.

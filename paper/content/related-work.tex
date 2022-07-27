@@ -1,0 +1,36 @@
+I/O profiling was already done in a micro-benchmark for TensorFlow by Chien et al.~\cite{Chien_2018} which focused on different file systems and the check-marking functionality.
+In their experimental setup with AlexNet~\cite{krizhevsky2012imagenet}, the training data prefetching eliminated the effective preprocessing time, similar to our CV pipeline with the \texttt{unprocessed} strategy.
+
+OneAccess, a unified data loading layer, functions as middleware for preprocessing and helps to run ML jobs on multiple nodes more efficiently by removing duplicate processing for hyperparameter tuning~\cite{kakaraparthy2019case}.
+We have observed similar results where packing the dataset helps by allowing sequential data access, but their preprocessing seems to be done fully offline.
+Their sample lifecycle concept, which plans to store the data for a certain amount of time in anticipation of re-use, is a perfect fit for PRESTO's strategy optimization to select the lowest storage consuming dataset representation.
+
+An example of improved I/O efficiency in DL for high-performance computing (HPC) is the framework DeepIO by Zhu et al.~\cite{zhu2018entropy} which optimizes data loading to improve the training throughput.
+This framework could be used to complement our methodology to mitigate I/O bottlenecks.
+
+Model throughput, which is coupled with GPU utilization, has been identified as an essential topic in the MLOps community~\cite{Jeon2018,ozeri2018object,murray2021tf}.
+Microsoft pointed out in a study~\cite{Jeon2018} that underutilization of GPUs in multi-tenant settings is a problem for cloud providers.
+They evaluated how job locality and human errors can lead to unnecessarily idling resources.
+IBM implemented their FUSE-based~\cite{fuse2018} file system for object storage to improve the I/O loads in their IBM Fabric for Deep Learning services~\cite{ozeri2018object}.
+Additionally, they deployed caching mechanisms to improve long-term read throughputs if the dataset fits into memory.
+These studies touch on different pain points of the cloud providers as they start to recognize the potential of improving the deployment and resource usage of end-to-end DL pipelines, which integrate the previously overlooked preprocessing phase.
+
+Another work in that direction is a recent NVIDIA study~\cite{nvidiabenchmarks2020} which profiled the end-to-end training and inference time for multiple frameworks and models on their GPU and TPU servers. They highlight the benefits of different hardware solutions but do not take the preprocessing pipeline into account as they preprocess the dataset only once completely.
+
+Relocating the preprocessing to more specialized hardware can increase performance and adds additional resources to the preprocessing profiling.
+NVIDIA's Data Loading Library (DALI), a Python library~\cite{dali2020}, provides common preprocessing steps for images, video, and audio formats, which can be used as a drop-in replacement for native pipelines that can be executed on the GPU.
+DALI has shown to improve the performance of multiple end-to-end DL pipelines~\cite{mohan2020analyzing,dalibench2019}.
+PRESTO can be applied on a DALI-enhanced pipeline, and while this may shift the trade-offs, it is essential to note that additional resources also introduce complexities like bandwidth restrictions, limited memory sizes, and in this case, double-use for preprocessing as well as training.
+DL models are stored in GPU memory for forward and backward passes, interfering with the improved preprocessing execution due to restricted memory size and computational capabilities when executed in a pipelined fashion.
+The cost and ubiquity of CPU processing should be weighed carefully against GPUs and when in doubt, be optimized in an end-to-end manner with tools like CoorDL~\cite{mohan2020analyzing}.
+
+Our work focused on the trade-offs between storage consumption, throughput, and preprocessing time, while Mohan et al.~\cite{mohan2020analyzing} analyzed different types of stalls and focused on dividing the entire end-to-end DL pipeline into data fetches, preprocessing rate, and GPU processing rate.
+They have shown how to efficiently use the OS-level cache to improve fetch stalls while increasing the total time-to-accuracy on two 24 core machines with 8 GPUs and 500\:GB RAM with an HDD and an SSD local storage.
+While our focus was more on consumer-level hardware, which does not allow this level of caching, we had a similar observation that the decoding step in CV is very inefficient and that slow preprocessing can bottleneck the training performance on the GPU.
+We provide a solution to one of their discussion points on mitigating the increased storage consumption due to decoding with a suitable strategy, which can cache the entire dataset even more efficiently combined with CoorDL.
+
+Relocating the preprocessing onto an accelerator is also done in SMOL, a system that prepares the most efficient strategy on how to preprocess visual data \textit{and} train a model in an end-to-end fashion while keeping the accuracy fixed~\cite{kang2020jointly}.
+We reproduced similar preprocessing bottlenecks regarding our image pipeline.
+However, while SMOL uses data compression steps and other techniques to speed up the data processing while providing the same model accuracy, we focused entirely on the preprocessing pipeline.
+Some of our insights can be incorporated into SMOL, {\color{diff2} such as partially preprocessing a pipeline for a specific set of hardware, allowing better throughput based on the presence of hardware en-/decoders or having additional compression in the preprocessing pipeline to increase the final throughput.}
+Supplementing SMOL with our analysis of common preprocessing steps could enable it to work on non-image data.

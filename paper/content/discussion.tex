@@ -1,0 +1,33 @@
+While our analysis provides some key insights about how to profile and configure a preprocessing pipeline, we want to highlight some settings which could benefit from further research.
+
+\textbf{Datasets can grow over time.}
+The results from PRESTO when profiling a pipeline and a static dataset should provide valuable insights if the dataset grows in the future.
+One exception is when the data representation of the newly added data is not compatible with the previous dataset, e.g., adding 4k images to a VGA-resolution dataset, which may slow down parts of the pipeline in unpredicted ways and result in different trade-offs.
+TensorFlow Extended (TFX)~\cite{10.1145/3097983.3098021} is an ML platform to train and deploy models, which can be used to keep track of this shift in the dataset.
+
+\textbf{Storage bandwidth has shown to be a bottleneck for other similar MLOps studies~\cite{mohan2020analyzing, murray2021tf, kang2020jointly}}.
+{\color{diff2}We have shown that compression is a promising tool to mitigate storage-related bottlenecks but its efficacy is limited. Compression that is optimized to store \textit{tensor-like} data could potentially provide even better throughput and space saving.}
+Our recommended strategies from CV and NLP are integer tensors, but NILM, MP3, and FLAC use floating-point tensors with 32 and 64 bit, which suggests that different compression algorithms have to be considered depending on the data representation~\cite{lemire2015decoding, fastfpd}.
+When applied carelessly, compression can have severe effects on the entire online processing.
+PRESTO can be used to study the effect of compression in more depth.
+
+% The study by Kang et al.~\cite{kang2020jointly} used techniques like progressive decoding and downsampling to speed up their image preprocessing pipeline to not stall the training process.
+% They have shown how fine-tuned steps for specific data representations can alleviate bottlenecks and that the initial encoding of the data can affect the preprocessing time.
+% While they have not used preprocessing strategies with serialization formats like TFRecord, this shows a significant research potential to include sampling, downscaling, and reencoding into intermediate dataset representations.
+
+\textbf{Distributed computing for preprocessing.}
+A common solution to speed up the execution jobs is using multiple worker nodes with frameworks like Apache BEAM~\cite{beam} or Spark~\cite{zaharia2010spark}.
+Preprocessing a dataset is a trivially parallelizable task by splitting the dataset into equal chunks for every worker to process simultaneously, except for shuffling or similar global dataset operators.
+While it is easy to follow PRESTO's recommendation and apply the offline transformation steps until the desired data representation is met, there are more complexities involved, like the data locality to workers, the locality of the workers to the training process, the amount of workers available, the interconnects, and the scheduling algorithm that supervises the job execution.
+This distributed setting will benefit from PRESTO's analysis, as storage consumption is correlated with the network bandwidth usage, and finding a strategy that has a good speedup will be even more effective with multiple workers. 
+These insights may help to improve data management and scheduling.
+Nevertheless, additional profiling should be done to further optimize the pipeline execution for the specific cluster-computing framework.
+
+{\color{diff}
+\textbf{Applicability for concurrent training.}
+When considering a setup with a shared preprocessing pipeline between multiple distributed training jobs, such as in hyperparameter tuning, all of our insights are applicable, as the throughput $T_4$ can be fanned out to all training jobs. However, this setup adds load onto the network between the preprocessing node and the training nodes, which would not happen when running the preprocessing locally on the same machine that performs training. If the network can not handle the duplicated load of fanning out the preprocessed data per training job, it will become a new bottleneck.
+}
+%\textbf{Encoding and downsamling can help speed up preprocessing.}
+%&The study by Kang et. al~\cite{kang2020jointly} used techniques like progressive decoding and downsampling to speed up their image preprocessing pipeline to not stall the training process.
+%They have shown how fine-tuned steps for specific data representations can alleviate bottlenecks, and that the initial encoding of the data can affect the preprocessing time.
+%While they have not used preprocessing strategies with serialization formats like TFRecord, this shows a great potential to research further into including sampling, downscaling and reencoding into intermediate dataset representations.
