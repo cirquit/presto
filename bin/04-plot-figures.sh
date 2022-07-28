@@ -45,25 +45,19 @@ fi
 if [[ $cubepp -eq 1 ]]; then
   ./plot-figures/04-02-create-cubepp-plots.sh
 fi
+if [[ $owt -eq 1 ]]; then
+  ./plot-figures/04-03-create-owt-plots.sh
+fi
+if [[ $cream -eq 1 ]]; then
+  ./plot-figures/04-04-create-cream-plots.sh
+fi
+if [[ $commonvoice -eq 1 ]]; then
+  ./plot-figures/04-05-create-commonvoice-plots.sh
+fi
+if [[ $librispeech -eq 1 ]]; then
+  ./plot-figures/04-06-create-librispeech-plots.sh
+fi
+if [[ $synthetic -eq 1 ]]; then
+  ./plot-figures/04-07-create-synthetic-plots.sh
+fi
 
-
-#echo $imagenet
-#echo $cubepp
-#echo $owt
-#echo $cream
-#echo $commonvoice
-#echo $librispeech
-#echo $synthetic
-
-
-# ./01-datasets/01-01-download-imagenet.sh
-
-# ./01-datasets/01-02-download-cube++.sh
-
-# ./01-datasets/01-03-download-openwebtext.sh
-
-# ./01-datasets/01-04-download-cream.sh
-
-# ./01-datasets/01-05-download-commonvoice.sh
-
-# ./01-datasets/01-06-download-librispeech.sh
