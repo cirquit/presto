@@ -12,10 +12,7 @@ window_size_s = 10
 cream_mains_frequency_hz = 50
 window_sample_count = window_size_s * cream_sps
 cream_period_length = cream_sps / cream_mains_frequency_hz
-home_path = str(Path.home())
-## !!! MODIFY THESE LINES, search for '###' for all lines to modify because the CREAM pipeline shitty to work with
-cream_sample_day_path_local = f"{home_path}/Downloads/datasets/cream/2018-08-23" ### <------
-cream_sample_day_path_ceph  = f"{home_path}/rbgstorage/nilm/i13-dataset/CREAM/X8/2018-08-23" ### <-----
+cream_sample_day_path  = "/dataset/m1554766/CREAM/X8/2018-08-23"
 
 def pipeline_definition(source_path: str):
     return [
@@ -24,7 +21,7 @@ def pipeline_definition(source_path: str):
             "type": "source",
             "op": tf.data.Dataset.from_tensor_slices(
                 list_files(cream_dataset_path = source_path)
-            ).shuffle(744, reshuffle_each_iteration=True),
+            ),
             "output_schema": tf.TensorSpec((), tf.string)
         },
         {

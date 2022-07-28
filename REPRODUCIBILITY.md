@@ -92,7 +92,7 @@ However, the relative differences should be similar to our results:
   - same trend, i.e. *app-cache* is much faster than *no-cache* at 20.5MB, but similar at 0.01MB
 * Figure 10
   - storage consumption should be close to identical
-  - compression performance should be similar (same trend, i.e., at subfigure 'e' compression should be better than no compression)
+  - compression performance should be similar (same trend, i.e., at subfigure 'e' compression should be better than no compression, but may be different for hardware specific reasons)
 * Figure 11
   - same trend
 * Figure 12
