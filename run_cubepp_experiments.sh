@@ -10,11 +10,11 @@ for threadcount in 1 2 4 8
 do
   for pipelinemod in jpg png
   do
-    echo 3 > /drop_caches
+#    echo 3 > /drop_caches
     compression="none"
-    samplecount=4890
+    samplecount=500
     runs=2
-    python -u $pythonscript $threadcount $compression $samplecount $runs $pipelinemod
+#    python -u $pythonscript $threadcount $compression $samplecount $runs $pipelinemod
   done
 done
 # 1.2 clean up
@@ -30,7 +30,7 @@ do
   do
     echo 3 > /drop_caches
     threadcount=8
-    samplecount=4890
+    samplecount=500
     runs=1
     python -u $pythonscript $threadcount $compression $samplecount $runs $pipelinemod
   done

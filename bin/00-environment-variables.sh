@@ -38,9 +38,9 @@ export IMAGENET_AFTER_CENTERING_LOG_PATH="${LOG_PATH}/imagenet/after-centering"
 mkdir -p ${IMAGENET_AFTER_CENTERING_LOG_PATH}
 export CUBEPP_LOG_PATH="${LOG_PATH}/cube++"
 mkdir -p ${CUBEPP_LOG_PATH}
-export CUBEPP_PNG_LOG_PATH="${LOG_PATH}/cube++/png/"
+export CUBEPP_PNG_LOG_PATH="${LOG_PATH}/cube++/png"
 mkdir -p ${CUBEPP_PNG_LOG_PATH}
-export CUBEPP_JPG_LOG_PATH="${LOG_PATH}/cube++/jpg/"
+export CUBEPP_JPG_LOG_PATH="${LOG_PATH}/cube++/jpg"
 mkdir -p ${CUBEPP_JPG_LOG_PATH}
 export OWT_LOG_PATH="${LOG_PATH}/openwebtext"
 mkdir -p ${OWT_LOG_PATH}
