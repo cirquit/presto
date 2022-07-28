@@ -26,7 +26,7 @@ for threadcount in 8
 do
   echo 3 > /drop_caches
   compression="none"
-  #samplecount=1281167
+  #samplecount=267840
   samplecount=500
   runs=2
  #  python -u $pythonscript $threadcount $compression $samplecount $runs
@@ -42,7 +42,7 @@ for compression in ZLIB GZIP
 do
   echo 3 > /drop_caches
   threadcount=8
-  #samplecount=1281167
+  #samplecount=267840
   samplecount=500
   runs=1
   python -u $pythonscript $threadcount $compression $samplecount $runs
