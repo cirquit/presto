@@ -42,6 +42,10 @@ done
 if [[ $imagenet -eq 1 ]]; then
   ./plot-figures/04-01-create-imagenet-plots.sh
 fi
+if [[ $cubepp -eq 1 ]]; then
+  ./plot-figures/04-02-create-cubepp-plots.sh
+fi
+
 
 #echo $imagenet
 #echo $cubepp

@@ -50,4 +50,6 @@ export COMMONVOICE_LOG_PATH="${LOG_PATH}/commonvoice"
 mkdir -p ${COMMONVOICE_LOG_PATH}
 export LIBRISPEECH_LOG_PATH="${LOG_PATH}/librispeech"
 mkdir -p ${LIBRISPEECH_LOG_PATH}
+export SYNTHETIC_LOG_PATH="${LOG_PATH}/synthetic"
+mkdir -p ${SYNTHETIC_LOG_PATH}
 

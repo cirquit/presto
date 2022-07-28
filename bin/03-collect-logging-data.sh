@@ -43,23 +43,26 @@ if [[ $imagenet -eq 1 ]]; then
   ./collect-logging-data/03-01-prepare-imagenet-logs.sh
 fi
 
-#echo $imagenet
-#echo $cubepp
-#echo $owt
-#echo $cream
-#echo $commonvoice
-#echo $librispeech
-#echo $synthetic
+if [[ $cubepp -eq 1 ]]; then
+  ./collect-logging-data/03-02-prepare-cubepp-logs.sh
+fi
 
+if [[ $owt -eq 1 ]]; then
+  ./collect-logging-data/03-03-prepare-owt-logs.sh
+fi
 
-# ./01-datasets/01-01-download-imagenet.sh
+if [[ $cream -eq 1 ]]; then
+  ./collect-logging-data/03-04-prepare-cream-logs.sh
+fi
 
-# ./01-datasets/01-02-download-cube++.sh
+if [[ $commonvoice -eq 1 ]]; then
+  ./collect-logging-data/03-05-prepare-commonvoice-logs.sh
+fi
 
-# ./01-datasets/01-03-download-openwebtext.sh
+if [[ $librispeech -eq 1 ]]; then
+  ./collect-logging-data/03-06-prepare-librispeech-logs.sh
+fi
 
-# ./01-datasets/01-04-download-cream.sh
-
-# ./01-datasets/01-05-download-commonvoice.sh
-
-# ./01-datasets/01-06-download-librispeech.sh
+if [[ $synthetic -eq 1 ]]; then
+  ./collect-logging-data/03-07-prepare-synthetic-logs.sh
+fi

@@ -47,10 +47,22 @@ if [[ $cubepp -eq 1 ]]; then
   ./run-experiments/02-02-run-cubepp-experiments.sh    
 fi
 
-#echo $imagenet
-#echo $cubepp
-#echo $owt
-#echo $cream
-#echo $commonvoice
-#echo $librispeech
-#echo $synthetic
+if [[ $owt -eq 1 ]]; then
+  ./run-experiments/02-03-run-owt-experiments.sh    
+fi
+
+if [[ $cream -eq 1 ]]; then
+  ./run-experiments/02-04-run-cream-experiments.sh    
+fi
+
+if [[ $commonvoice -eq 1 ]]; then
+  ./run-experiments/02-05-run-commonvoice-experiments.sh    
+fi
+
+if [[ $librispeech -eq 1 ]]; then
+  ./run-experiments/02-06-run-librispeech-experiments.sh    
+fi
+
+if [[ $synthetic -eq 1 ]]; then
+  ./run-experiments/02-07-run-synthetic-experiments.sh    
+fi
