@@ -13,18 +13,26 @@ from presto          import pipeline
 from presto.analysis import StrategyAnalysis
 from presto.strategy import Strategy
 
-from imagenet_pipeline import pipeline_definition
-
 thread_shard_count = int(sys.argv[1])
 compression_type   = str(sys.argv[2])
 sample_count       = int(sys.argv[3])
 runs               = int(sys.argv[4])
+pipeline_mod       = str(sys.argv[5])
+if (pipeline_mod == 'none'):
+    from imagenet_pipeline import pipeline_definition
+    log_path    = "/logs"
+elif (pipeline_mod == 'before-centering'):
+    from imagenet_pipeline_before_centering import pipeline_definition
+    log_path    = "/logs/before-centering"
+    os.makedirs(log_path, exist_ok=True)
+else:
+    from imagenet_pipeline_after_centering import pipeline_definition
+    log_path    = "/logs/after-centering"
+    os.makedirs(log_path, exist_ok=True)
 
 storage_type = "remote"
-
 source_path = "/dataset/ILSVRC/Data/CLS-LOC/train"
 target_path = "/tmp"
-log_path    = "/logs"
 
 # define pipeline with the source path
 imagenet_pipeline = pipeline_definition(source_path)
