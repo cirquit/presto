@@ -24,11 +24,9 @@ if (pipeline_mod == 'none'):
 elif (pipeline_mod == 'before-centering'):
     from imagenet_pipeline_before_centering import pipeline_definition
     log_path    = "/logs/before-centering"
-    os.makedirs(log_path, exist_ok=True)
 else:
     from imagenet_pipeline_after_centering import pipeline_definition
     log_path    = "/logs/after-centering"
-    os.makedirs(log_path, exist_ok=True)
 
 storage_type = "remote"
 source_path = "/dataset/ILSVRC/Data/CLS-LOC/train"

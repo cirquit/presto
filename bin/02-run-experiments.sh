@@ -43,6 +43,10 @@ if [[ $imagenet -eq 1 ]]; then
   ./run-experiments/02-01-run-imagenet-experiments.sh    
 fi
 
+if [[ $cubepp -eq 1 ]]; then
+  ./run-experiments/02-02-run-cubepp-experiments.sh    
+fi
+
 #echo $imagenet
 #echo $cubepp
 #echo $owt
@@ -50,16 +54,3 @@ fi
 #echo $commonvoice
 #echo $librispeech
 #echo $synthetic
-
-
-# ./01-datasets/01-01-download-imagenet.sh
-
-# ./01-datasets/01-02-download-cube++.sh
-
-# ./01-datasets/01-03-download-openwebtext.sh
-
-# ./01-datasets/01-04-download-cream.sh
-
-# ./01-datasets/01-05-download-commonvoice.sh
-
-# ./01-datasets/01-06-download-librispeech.sh
