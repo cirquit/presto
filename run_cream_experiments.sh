@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pythonscript="openwebtext_modern_demo.py"
+pythonscript="cream_demo.py"
 
 echo "---"
 echo "I. Starting with short parallelism experiments..."
@@ -16,7 +16,7 @@ do
   python -u $pythonscript $threadcount $compression $samplecount $runs
 done
 # 1.2 clean up
-rm -rf /tmp/owt*
+rm -rf /tmp/cream*
 
 echo "---"
 echo "II. Caching experiments..."
@@ -29,10 +29,10 @@ do
   #samplecount=1281167
   samplecount=500
   runs=2
-  python -u $pythonscript $threadcount $compression $samplecount $runs
+ #  python -u $pythonscript $threadcount $compression $samplecount $runs
 done
 # 2.2 Clean up
-rm -rf /tmp/owt*
+rm -rf /tmp/cream*
 
 echo "---"
 echo "III. Compression experiments..."
@@ -48,4 +48,4 @@ do
   python -u $pythonscript $threadcount $compression $samplecount $runs
 done
 # 3.2 Clean up
-rm -rf /tmp/owt*
+rm -rf /tmp/cream*

@@ -23,6 +23,7 @@ runs               = int(sys.argv[4])
 log_path = "/logs"
 source_path = "/dataset/m1554766/CREAM/X8"
 target_path = "/tmp"
+storage_type = "remote"
 
 cream_pipeline = pipeline_definition(source_path = source_path)
 cream_pipeline_steps = list(range(len(cream_pipeline)))

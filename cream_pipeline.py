@@ -66,7 +66,7 @@ def list_files(cream_dataset_path):
 
 def get_voltage_current_sampled(file_path):
     # tuple(np.ndarray(float64), np.ndarray(float64))
-    cream_day = CREAM_Day(cream_day_location = cream_sample_day_path_ceph)
+    cream_day = CREAM_Day(cream_day_location = cream_sample_day_path)
     voltage, current = cream_day.load_file(file_path = file_path)
     voltage_window_count = int(len(voltage) / window_sample_count)
     voltage_samples = voltage.reshape(voltage_window_count, window_sample_count)
