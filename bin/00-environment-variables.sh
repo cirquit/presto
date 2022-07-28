@@ -32,6 +32,10 @@ mkdir -p ${LIBRISPEECH_DATASET_PATH}
 # create log paths
 export IMAGENET_LOG_PATH="${LOG_PATH}/imagenet"
 mkdir -p ${IMAGENET_LOG_PATH}
+export IMAGENET_BEFORE_CENTERING_LOG_PATH="${LOG_PATH}/imagenet/before-centering"
+mkdir -p ${IMAGENET_BEFORE_CENTERING_LOG_PATH}
+export IMAGENET_AFTER_CENTERING_LOG_PATH="${LOG_PATH}/imagenet/after-centering"
+mkdir -p ${IMAGENET_AFTER_CENTERING_LOG_PATH}
 export CUBEPP_LOG_PATH="${LOG_PATH}/cube++"
 mkdir -p ${CUBEPP_LOG_PATH}
 export OWT_LOG_PATH="${LOG_PATH}/openwebtext"
