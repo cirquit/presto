@@ -49,7 +49,8 @@ else: # data_type == "float32"
 # with float32, shape=1 => 0.01MB size
 sample_shape = [2500,shape]
 
-if pipeline_mod == "read-experiment" or pipeline_mod == "sys-caching-read" or pipeline_mod == "app-caching-read":
+if pipeline_mod == "read-experiment" or pipeline_mod == "sys-caching-read" \
+    or pipeline_mod == "app-caching-read" or pipeline_mod == "parallelism":
     from synthetic_pipeline_reading import pipeline_definition
     type_pipeline = pipeline_definition(shape=sample_shape
                                       , sample_count=sample_count
