@@ -17,7 +17,7 @@ def pipeline_definition(shape, sample_count, data_type, computation_type):
     # fixed to 500, because the smallest sample is 2500 big, so always divisible
     transform_period = 500
 
-    if computation_type == "numpy-raw":
+    if computation_type == "np-computation":
         comp_fn = lambda signal: rms_numpy_raw()(signal=signal, period_length=transform_period)
     elif computation_type == "numpy-class":
         comp_fn = lambda signal: rms_numpy_class()(signal=signal, period_length=transform_period)
@@ -25,7 +25,7 @@ def pipeline_definition(shape, sample_count, data_type, computation_type):
         comp_fn = lambda signal: rms_tensorflow_fn_wrapped()(signal=signal, period_length=transform_period)
     elif computation_type == "tensorflow-for-loop-fn-wrapped":
         comp_fn = lambda signal: rms_tensorflow_for_loop_fn_wrapped()(signal=signal, period_length=transform_period)
-    else:
+    else: # computation_type == "tf-computation"
         comp_fn = lambda signal: rms_tensorflow(signal=signal, period_length=transform_period)
 
     return [

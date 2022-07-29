@@ -1,51 +1,15 @@
 #!/bin/bash
 
-pythonscript="openwebtext_modern_demo.py"
+pythonscript="type_demo.py"
 
 echo "---"
-echo "I. Starting with short parallelism experiments..."
+echo "I. Reading UINT8 from storage..."
 echo "---"
-# 1.1 Parallelism experiments + caching
-for threadcount in 1 2 4 8
-do
-  echo 3 > /drop_caches
-  compression="none"
-  # samplecount=8000
-  samplecount=500
-  runs=2
-  python -u $pythonscript $threadcount $compression $samplecount $runs
-done
+echo 3 > /drop_caches
+threadcount=8
+runs=1
+datatype="uint8"
+pipeline_mod="read_experiment"
+python -u $pythonscript $threadcount 732 $runs $datatype 8192 $pipeline_mod
 # 1.2 clean up
-rm -rf /tmp/owt*
-
-echo "---"
-echo "II. Caching experiments..."
-echo "---"
-# 2.1 Caching experiments
-for threadcount in 8
-do
-  echo 3 > /drop_caches
-  compression="none"
-  #samplecount=1281167
-  samplecount=500
-  runs=2
-  python -u $pythonscript $threadcount $compression $samplecount $runs
-done
-# 2.2 Clean up
-rm -rf /tmp/owt*
-
-echo "---"
-echo "III. Compression experiments..."
-echo "---"
-# 3.1 Compression experiments
-for compression in ZLIB GZIP
-do
-  echo 3 > /drop_caches
-  threadcount=8
-  #samplecount=1281167
-  samplecount=500
-  runs=1
-  python -u $pythonscript $threadcount $compression $samplecount $runs
-done
-# 3.2 Clean up
-rm -rf /tmp/owt*
+rm -rf /tmp/synthetic*
