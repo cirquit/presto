@@ -2,6 +2,7 @@
 
 pythonscript="commonvoice_demo.py"
 
+echo "--- Approx. total runtime 6h ---"
 echo "---"
 echo "I. Starting with short parallelism experiments..."
 echo "---"
@@ -11,7 +12,6 @@ do
   echo 3 > /drop_caches
   compression="none"
   samplecount=8000
-#  samplecount=500
   runs=2
   python -u $pythonscript $threadcount $compression $samplecount $runs
 done
@@ -27,7 +27,6 @@ do
   echo 3 > /drop_caches
   compression="none"
   samplecount=12717
-  #samplecount=500
   runs=2
   python -u $pythonscript $threadcount $compression $samplecount $runs
 done
@@ -43,7 +42,6 @@ do
   echo 3 > /drop_caches
   threadcount=8
   samplecount=12717
-  #samplecount=500
   runs=1
   python -u $pythonscript $threadcount $compression $samplecount $runs
 done

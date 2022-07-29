@@ -14,7 +14,7 @@ def pipeline_definition(shape, sample_count, data_type, computation_type):
         print(f"ERROR: Unsupported dtype in pipeline_definition: {dtype}")
         sys.exit(1)
 
-    # fixed to 500, because the smallest sample is 2500 big, so always devisible
+    # fixed to 500, because the smallest sample is 2500 big, so always divisible
     transform_period = 500
 
     if computation_type == "numpy-raw":
