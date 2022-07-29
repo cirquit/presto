@@ -25,9 +25,10 @@ pipeline_mod       = str(sys.argv[6])
 
 storage_type = "remote"
 target_path = "/tmp"
+compression_type = "none"
 
 if data_type == "uint8":
-    log_path = "/logs/uint8":
+    log_path = "/logs/uint8"
 else: # data_type == "float32"
     if pipeline_mod == "read-experiment":
         log_path = "/logs/float32"
@@ -54,8 +55,8 @@ if pipeline_mod == "read-experiment" or pipeline_mod == "sys-caching-read" or pi
                                       , sample_count=sample_count
                                       , data_type=data_type)
     type_pipeline_steps = list(range(len(type_pipeline)))
+    # del type_pipeline_steps[1] # no need to profile creating the dataset
     del type_pipeline_steps[0] # no need to profile fully-online with a generated dataset from memory
-    del type_pipeline_steps[1] # no need to profile creating the dataset
 else: # pipeline_mod == 'tf-computation' or pipeline_mod == 'np-computation'
     from synthetic_pipeline_processing import pipeline_definition
     type_pipeline = pipeline_definition(shape=sample_shape
@@ -63,13 +64,9 @@ else: # pipeline_mod == 'tf-computation' or pipeline_mod == 'np-computation'
                                       , data_type=data_type
                                       , computation_type=pipeline_mod)
     type_pipeline_steps = list(range(len(type_pipeline)))
-    del type_pipeline_steps[0] # no need to profile fully-online with a generated dataset from memory
+    del type_pipeline_steps[3] # no need to profile reading processed dataset
     del type_pipeline_steps[1] # no need to profile creating the dataset
-    del type_pipeline_steps[3] # no need to profile reading fully processed dataset
-
-
-#del type_pipeline_steps[2] # remote reading startegy, need only processing
-#del type_pipeline_steps[0] # remove the 0-fully-online strategy, we only need the read from dataset performance
+    del type_pipeline_steps[0] # no need to profile fully-online with a generated dataset from memory
 
 thread_counts = [thread_shard_count]
 shard_counts  = [thread_shard_count]
@@ -93,7 +90,7 @@ for sample_count in sample_counts:
     for strategy in strategies:
         strategy.profile_strategy(sample_count = sample_count
                                 , runs_total = runs_total
-                                , system_caching_enabled = True)
+                                , system_cache_enabled = True)
         strategy.print_stats()
 
 strategy_dfs = [strat.profile_as_df()       for strat in strategies]

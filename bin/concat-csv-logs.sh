@@ -4,7 +4,12 @@
 
 CSV_FILES_SH="ls | grep csv | grep $1 | grep -v full"
 FILES=$(eval $CSV_FILES_SH)
-  
+
+if [ -z "$FILES" ]; then
+  exit 0
+fi
+
+
 FIRST_FILE=$(echo $FILES | cut --delimiter " " --fields 1)
 CSV_HEADER=$(head -n 1 $FIRST_FILE)
 

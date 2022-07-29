@@ -2,7 +2,7 @@ import sys
 import numpy as np
 import tensorflow as tf
 
-def pipeline_definition(shape, sample_count, data_type, computation_type):
+def pipeline_definition(shape, sample_count, data_type):
 
     if data_type == "float32":
         dtype = tf.float32
