@@ -21,7 +21,7 @@ python -u $pythonscript $threadcount 93750  $runs $datatype 64   $pipeline_mod
 python -u $pythonscript $threadcount 187500 $runs $datatype 32   $pipeline_mod
 python -u $pythonscript $threadcount 375000 $runs $datatype 16   $pipeline_mod
 python -u $pythonscript $threadcount 750000 $runs $datatype 8    $pipeline_mod
-python -u $pythonscript $threadcount 150000 $runs $datatype 4    $pipeline_mod
+python -u $pythonscript $threadcount 1500000 $runs $datatype 4    $pipeline_mod
 # 1.2 clean up
 rm -rf /tmp/synthetic*
 
@@ -43,7 +43,7 @@ python -u $pythonscript $threadcount 93750  $runs $datatype 16   $pipeline_mod
 python -u $pythonscript $threadcount 187500 $runs $datatype 8    $pipeline_mod
 python -u $pythonscript $threadcount 375000 $runs $datatype 4    $pipeline_mod
 python -u $pythonscript $threadcount 750000 $runs $datatype 2    $pipeline_mod
-python -u $pythonscript $threadcount 150000 $runs $datatype 1    $pipeline_mod
+python -u $pythonscript $threadcount 1500000 $runs $datatype 1    $pipeline_mod
 # 2.2 clean up
 rm -rf /tmp/synthetic*
 
@@ -65,7 +65,7 @@ python -u $pythonscript $threadcount 93750  $runs $datatype 16   $pipeline_mod
 python -u $pythonscript $threadcount 187500 $runs $datatype 8    $pipeline_mod
 python -u $pythonscript $threadcount 375000 $runs $datatype 4    $pipeline_mod
 python -u $pythonscript $threadcount 750000 $runs $datatype 2    $pipeline_mod
-python -u $pythonscript $threadcount 150000 $runs $datatype 1    $pipeline_mod
+python -u $pythonscript $threadcount 1500000 $runs $datatype 1    $pipeline_mod
 # 3.2 clean up
 rm -rf /tmp/synthetic*
 
@@ -87,7 +87,7 @@ python -u $pythonscript $threadcount 93750  $runs $datatype 16   $pipeline_mod
 python -u $pythonscript $threadcount 187500 $runs $datatype 8    $pipeline_mod
 python -u $pythonscript $threadcount 375000 $runs $datatype 4    $pipeline_mod
 python -u $pythonscript $threadcount 750000 $runs $datatype 2    $pipeline_mod
-python -u $pythonscript $threadcount 150000 $runs $datatype 1    $pipeline_mod
+python -u $pythonscript $threadcount 1500000 $runs $datatype 1    $pipeline_mod
 # 4.2 clean up
 rm -rf /tmp/synthetic*
 
@@ -109,7 +109,7 @@ for threadcount in 1 2 4 8
   python -u $pythonscript $threadcount 187500 $runs $datatype 8    $pipeline_mod
   python -u $pythonscript $threadcount 375000 $runs $datatype 4    $pipeline_mod
   python -u $pythonscript $threadcount 750000 $runs $datatype 2    $pipeline_mod
-  python -u $pythonscript $threadcount 150000 $runs $datatype 1    $pipeline_mod
+  python -u $pythonscript $threadcount 1500000 $runs $datatype 1    $pipeline_mod
 # 5.2 clean up
 rm -rf /tmp/synthetic*
 
@@ -131,7 +131,7 @@ for pipeline_mod in tf-computation np-computation
   python -u $pythonscript $threadcount 187500 $runs $datatype 8    $pipeline_mod
   python -u $pythonscript $threadcount 375000 $runs $datatype 4    $pipeline_mod
   python -u $pythonscript $threadcount 750000 $runs $datatype 2    $pipeline_mod
-  python -u $pythonscript $threadcount 150000 $runs $datatype 1    $pipeline_mod
+  python -u $pythonscript $threadcount 1500000 $runs $datatype 1    $pipeline_mod
 # 6.2 clean up
 rm -rf /tmp/synthetic*
 
