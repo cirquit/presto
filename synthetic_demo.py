@@ -65,8 +65,7 @@ else: # pipeline_mod == 'tf-computation' or pipeline_mod == 'np-computation'
                                       , data_type=data_type
                                       , computation_type=pipeline_mod)
     type_pipeline_steps = list(range(len(type_pipeline)))
-    del type_pipeline_steps[3] # no need to profile reading processed dataset
-    del type_pipeline_steps[1] # no need to profile creating the dataset
+    del type_pipeline_steps[2] # no need to profile fully-offline
     del type_pipeline_steps[0] # no need to profile fully-online with a generated dataset from memory
 
 thread_counts = [thread_shard_count]
