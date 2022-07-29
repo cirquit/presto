@@ -27,6 +27,7 @@ storage_type = "remote"
 target_path = "/tmp"
 compression_type = "none"
 
+# setup logging directory
 if data_type == "uint8":
     log_path = "/logs/uint8"
 else: # data_type == "float32"
@@ -90,7 +91,8 @@ for sample_count in sample_counts:
     for strategy in strategies:
         strategy.profile_strategy(sample_count = sample_count
                                 , runs_total = runs_total
-                                , system_cache_enabled = True)
+                                , system_cache_enabled = True
+                                , application_cache_enabled = pipeline_mod == "app-caching-read")
         strategy.print_stats()
 
 strategy_dfs = [strat.profile_as_df()       for strat in strategies]
