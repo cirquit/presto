@@ -2,7 +2,7 @@
 
 pythonscript="synthetic_demo.py"
 
-echo "Approximate runtime: 1h (I) + 1h (II) + (III) + (IV) + 8h (V) + (VI)= 10h"
+echo "Approximate runtime: 4h (I) + 4h (II) + 4h (III) + 4h (IV) + 8h (V) + (VI) = 24h"
 echo "---"
 echo "I. Reading UINT8 from storage..."
 echo "---"
