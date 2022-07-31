@@ -2,7 +2,7 @@
 
 pythonscript="commonvoice_demo.py"
 
-echo "--- Approx. total runtime 6h ---"
+echo "Approximate runtime: 5h (I) + 1h (II) + 1h (III) = 7h"
 echo "---"
 echo "I. Starting with short parallelism experiments..."
 echo "---"
