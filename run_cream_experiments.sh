@@ -2,7 +2,7 @@
 
 pythonscript="cream_demo.py"
 
-echo "Approximate runtime: (I) + (II) + (III) = Xh"
+echo "Approximate runtime: 1h (I) + 9h (II) + 18h (III) = 28h"
 echo "---"
 echo "I. Starting with short parallelism experiments..."
 echo "---"
