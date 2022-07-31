@@ -8,6 +8,18 @@
 * Installed `docker` with `sudo` rights - [Link](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
 * Kaggle account and credentials to download a dataset - [Link](https://www.kaggle.com/account/login?phase=startRegisterTab)
 
+### TLDR - takes X days to run sequentially
+
+```
+cd presto/bin
+# modify the storage paths
+source 00-environment-variables.sh
+./0-download-datasets.sh && ./02-run-experiments.sh all && ./03-collect-logging-data.sh all && ./04-plot-figures.sh all && ./05-compile-paper.sh
+```
+
+Copy the paper from `presto/paper/main.pdf` to your local PC.
+
+
 ### Step 1 - Download datasets
 
 After cloning the repository to the above described node:
@@ -80,6 +92,7 @@ scp <target-vm>:<presto-path>/paper/main.pdf .
 ### Step 6 - Compare results
 
 The entire paper topic is to profile your individual hardware bottlenecks, so your results mights differ a lot in absolute numbers.
+Also, we ran every experiment 5 times to amortize slight outliers due to hardware effects, but would take a lot more time to reproduce, so we setup our scripts to run once.
 
 However, the relative differences should be similar to our results:
 * Figure 6
