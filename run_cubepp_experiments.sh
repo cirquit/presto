@@ -2,7 +2,7 @@
 
 pythonscript="cubeplusplus_demo.py"
 
-echo "Approximate runtime: h (I) + h (II) + h (III) = Xh"
+echo "Approximate runtime: 18h (I) + 14h (II) = 32h"
 echo "---"
 echo "I. Starting with short parallelism experiments..."
 echo "---"
