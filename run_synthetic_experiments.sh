@@ -2,7 +2,7 @@
 
 pythonscript="synthetic_demo.py"
 
-echo "Approximate runtime: 4h (I) + 4h (II) + 4h (III) + 4h (IV) + 8h (V) + (VI) = 24h"
+echo "Approximate runtime: 4h (I) + 4h (II) + 4h (III) + 4h (IV) + 8h (V) + 100h (VI) = 124h"
 echo "---"
 echo "I. Reading UINT8 from storage..."
 echo "---"
@@ -118,12 +118,11 @@ rm -rf /tmp/synthetic*
 
 echo "VI. RMS processing runs..."
 echo "---"
-echo 3 > /drop_caches
 for threadcount in 1 2 4 8
 do
+  echo 3 > /drop_caches
   for pipeline_mod in tf-computation np-computation
   do
-  threadcount=8
   runs=1
   datatype="float32"
   python -u $pythonscript $threadcount 732    $runs $datatype 2048 $pipeline_mod
