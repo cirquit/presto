@@ -24,7 +24,8 @@ numpages = {15}
 
 # Reproducibility
 
-[**REPRODUCIBILITY README**](REPRODUCIBILITY.md)
+* Fully automated via Docker and Bash
+* [**REPRODUCIBILITY README**](REPRODUCIBILITY.md)
 
 ---
 ### How to use Presto for your own experiments
