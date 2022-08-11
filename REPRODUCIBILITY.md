@@ -4,11 +4,11 @@
 
 * One or more Linux boxes with 8 cores and 80GB memory and `unzip`, `tar`, `make` and `sed` installed
   - We used KVM virtualization without Docker on with a Intel Xeon E5-2630 v3 8x@2.4 GHz and DDR4 memory
-* Storage with at least 1-2TB space (advisable to have this as a remote storage with 10G up/downlink to run experiments in parallel)
+* Storage with at least 5TB space (advisable to have this as a remote storage with 10G up/downlink to run experiments in parallel)
 * Installed `docker` with `sudo` rights - [Link](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
 * Kaggle account and credentials to download a dataset - [Link](https://www.kaggle.com/account/login?phase=startRegisterTab)
 
-### TLDR - takes X days to run sequentially
+### TLDR - takes 28 days to run sequentially (without downloading the datasets)
 
 ```
 cd presto/bin
@@ -25,8 +25,8 @@ Copy the paper from `presto/paper/main.pdf` to your local PC.
 After cloning the repository to the above described node:
 * Modify the environment variables in presto/bin/00-environment-variables.sh to point to
   * `DATASETS_PATH` the ~ 1TB storage for the datasets (will take up less after the compressed files are removed
-  * `TEMP_PATH` - takes up XX storage for the temporary dataset representations
-  * `LOG_PATH` - takes up 10-20GB of storage for the generated logs for all experiments
+  * `TEMP_PATH` - temporary dataset representations (if run sequentially, ~ 3TB, if not prepare ~ 20TB)
+  * `LOG_PATH` - takes up 1GB of storage for the generated logs for all experiments
 * Move your downloaded `kaggle.json` to `presto/bin/kaggle.json`
 
 ```bash
@@ -120,3 +120,15 @@ However, the relative differences should be similar to our results:
 
 The remaining figures and tables were made "manually" from the results and reflect the actual profiling for our hardware.
 We include their generation, but do not substitute the numbers, as the findings might show different bottlenecks due to different hardware. (e.g. Fig.3, Fig.4, Tab.3, Tab.5)
+
+### Step 7 - Clean up
+
+```bash
+cd presto/bin
+source 00-environment-variables.sh
+./06-delete-data.sh <all|logs|datasets|temp>
+```
+
+Optional - Delete all Docker images from your system: `docker images -a -q | xargs docker rmi -f`
+
+
