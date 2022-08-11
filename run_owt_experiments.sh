@@ -2,7 +2,7 @@
 
 pythonscript="openwebtext_modern_demo.py"
 
-echo "Approximate runtime: h (I) + h (II) + h (III) = Xh"
+echo "Approximate runtime: 106h (I) + 78h (II) + 116h (III) = 300h"
 echo "---"
 echo "I. Starting with short parallelism experiments..."
 echo "---"
