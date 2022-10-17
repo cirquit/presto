@@ -17,16 +17,13 @@ cd ./download-datasets/imagenet-docker/
 docker build -t kaggle-imagenet-downloader:v1 .
 docker run -v $IMAGENET_DATASET_PATH:/tmp/ kaggle-imagenet-downloader:v1 
 
-echo "${bold}1.1.2 Extracting Part 1...${normal} (~ 1-2h)"
+echo "${bold}1.1.2 Extracting...${normal} (~ 1-2h)"
 
 cd ${IMAGENET_DATASET_PATH}
 unzip imagenet-object-localization-challenge.zip
-echo "${bold}-- Finished extraction part 1!"
+echo "${bold}-- Finished extraction!"
 
-echo "1.1.3 Extraction Part 2...${normal} (~ 1-2h)"
-tar xzf imagenet_object_localization_patched2019.tar.gz
 
 echo "${bold}1.1.4 Removing compressed files...${normal}"
 rm imagenet-object-localization-challenge.zip
-rm imagenet_object_localization_patched2019.tar.gz
 echo "${bold}-- Finished removing compressed dataset!${normal}"
