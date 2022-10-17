@@ -2,6 +2,7 @@
 
 pythonscript="cream_demo.py"
 
+echo "Approximate runtime: 1h (I) + 9h (II) + 18h (III) = 28h"
 echo "---"
 echo "I. Starting with short parallelism experiments..."
 echo "---"
@@ -10,8 +11,7 @@ for threadcount in 1 2 4 8
 do
   echo 3 > /drop_caches
   compression="none"
-  # samplecount=8000
-  samplecount=500
+  samplecount=8000
   runs=2
   python -u $pythonscript $threadcount $compression $samplecount $runs
 done
@@ -26,10 +26,9 @@ for threadcount in 8
 do
   echo 3 > /drop_caches
   compression="none"
-  #samplecount=1281167
-  samplecount=500
+  samplecount=267840
   runs=2
- #  python -u $pythonscript $threadcount $compression $samplecount $runs
+  python -u $pythonscript $threadcount $compression $samplecount $runs
 done
 # 2.2 Clean up
 rm -rf /tmp/cream*
@@ -42,8 +41,7 @@ for compression in ZLIB GZIP
 do
   echo 3 > /drop_caches
   threadcount=8
-  #samplecount=1281167
-  samplecount=500
+  samplecount=267840
   runs=1
   python -u $pythonscript $threadcount $compression $samplecount $runs
 done

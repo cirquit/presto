@@ -2,6 +2,8 @@ FROM ubuntu:18.04
 RUN apt update
 # installing necessary packages for python preprocessing
 RUN apt install wget dstat unzip build-essential libsndfile-dev ffmpeg software-properties-common python3.7-distutils -y
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt install cm-super dvipng texlive-latex-extra texlive-fonts-recommended -y
 WORKDIR /root/
 # setting up anaconda for python 3.7 on ubuntu18.04
 ENV PATH="/root/miniconda3/bin:${PATH}"

@@ -96,7 +96,7 @@ class StrategyAnalysis:
         self._throughput_key             = "throughput_sps"
         self._strategy_name_key          = "strategy"
         self._threads_key                = "threads"
-        self._sample_count_key           = "sample_count"  
+        self._sample_count_key           = "sample_count"
 
         self._strategy_dataframes = strategy_dataframes
         self._dstat_dataframes = dstat_dataframes
@@ -105,11 +105,11 @@ class StrategyAnalysis:
         if isinstance(cum_df, pd.DataFrame):
             self._cum_df = cum_df
         else:
-            self._cum_df = self.to_cum_df()    
+            self._cum_df = self.to_cum_df()
         if isinstance(cum_dstat_df, pd.DataFrame):
             self._cum_dstat_df = cum_dstat_df
         else:
-            self._cum_dstat_df = self.to_cum_dstat_df()  
+            self._cum_dstat_df = self.to_cum_dstat_df()
 
         self._dataframe_creation_timestamp = self._get_df_creation_timestamp()
 

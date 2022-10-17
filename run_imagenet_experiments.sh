@@ -2,8 +2,9 @@
 
 pythonscript="imagenet_demo.py"
 
+echo "Approximate runtime: 4h (I)  + 22h (II) + 96h (III) + 40h (IV) = 162h"
 echo "---"
-echo "I. Starting with short parallelism experiments...(~ 2h)"
+echo "I. Starting with short parallelism experiments..."
 echo "---"
 # 1.1 Parallelism experiments + caching
 for threadcount in 1 2 4 8
