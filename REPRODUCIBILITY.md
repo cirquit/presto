@@ -3,10 +3,12 @@
 ### Prerequisites
 
 * One or more Linux boxes with 8 cores and 80GB memory and `unzip`, `tar`, `make` and `sed` installed
-  - We used KVM virtualization without Docker on with a Intel Xeon E5-2630 v3 8x@2.4 GHz and DDR4 memory
+  - We used KVM virtualization without Docker on with a Intel Xeon E5-2630 v3 8x@2.4 GHz and DDR4 memory (resulting in ~ 78GB memory) 
 * Storage with at least 1-2TB space (advisable to have this as a remote storage with 10G up/downlink to run experiments in parallel)
 * Installed `docker` with `sudo` rights - [Link](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
 * Kaggle account and credentials to download a dataset - [Link](https://www.kaggle.com/account/login?phase=startRegisterTab)
+* All of our experiments were ran 5 times, but this would take sequentially X days. 
+  - However, we did not see to big fluctuations between runs, so we configured the automation to run it only once, resulting in only XY days runtime
 
 ### Step 1 - Download datasets
 
@@ -20,7 +22,7 @@ After cloning the repository to the above described node:
 ```bash
 cd presto/bin
 source 00-environment-variables.sh
-./01-download-datasets.sh # Follow instructions
+./01-download-datasets.sh
 ```
 
 ### Step 2 - Run experiments
@@ -36,7 +38,7 @@ The bash script takes one argument that specifies which experiments to run:
 - `synthetic`
 
 As some of these take weeks to run, it's advisable to run them in parallel on multiple machines with shared storage.
-Or copy the results from the individual `LOG_PATH` to the machine that will do the final analysis and plots.
+Then copy the results from the `LOG_PATH` to the machine that will do the final analysis and plots.
 
 ```bash
 cd presto/bin
@@ -80,6 +82,7 @@ scp <target-vm>:<presto-path>/paper/main.pdf .
 ### Step 6 - Compare results
 
 The entire paper topic is to profile your individual hardware bottlenecks, so your results mights differ a lot in absolute numbers.
+If you use different memory sizes, the caching results will have worse performance for strategies that do not fit into memory. Check Fig. 10 for the absolute numbers.
 
 However, the relative differences should be similar to our results:
 * Figure 6
