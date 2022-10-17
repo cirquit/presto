@@ -4,7 +4,7 @@
 
 * One or more Linux boxes with 8 cores and 80GB memory and `unzip`, `tar`, `make` and `sed` installed
   - We used KVM virtualization without Docker on with a Intel Xeon E5-2630 v3 8x@2.4 GHz and DDR4 memory (resulting in ~ 78GB memory) 
-* Storage with at least 1-2TB space (advisable to have this as a remote storage with 10G up/downlink to run experiments in parallel)
+* Storage with at least 5TB space (advisable to have this as a remote storage with 10G up/downlink to run experiments in parallel)
   - We reproduced our experiments with docker before the reproducibility submission and got very similar results
 * Installed `docker` with `sudo` rights - [Link](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
 * Kaggle account and credentials to download a dataset - [Link](https://www.kaggle.com/account/login?phase=startRegisterTab)
