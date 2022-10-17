@@ -63,6 +63,6 @@ if [[ $librispeech -eq 1 ]]; then
   ./run-experiments/02-06-run-librispeech-experiments.sh    
 fi
 
-if [[ $synthetic -eq 1 ]]; then
-  ./run-experiments/02-07-run-synthetic-experiments.sh    
-fi
+#if [[ $synthetic -eq 1 ]]; then
+#  ./run-experiments/02-07-run-synthetic-experiments.sh    
+#fi
