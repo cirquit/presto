@@ -5,7 +5,7 @@ normal=$(tput sgr0)
 
 echo "---"
 echo "1.5.1 Downloading commonvoice 5.1 singleword english..."
-#echo "---"
+echo "---"
 URL=https://syncandshare.lrz.de/dl/fiHrUgNaoGQC5yWFg916sZyP/commonvoice-5.1-single-word-english.tar.gz
 echo "From: ${URL}"
 echo "To: ${COMMONVOICE_DATASET_PATH}"
@@ -28,5 +28,5 @@ tar xzf commonvoice-5.1-single-word-english.tar.gz
 echo "${bold}-- Finished extraction!"
 
 echo "1.5.3 Removing compressed file...${normal}"
-# rm commonvoice-5.1-single-word-english.tar.gz
+rm commonvoice-5.1-single-word-english.tar.gz
 echo "${bold}-- Finished removing compressed dataset!${normal}"

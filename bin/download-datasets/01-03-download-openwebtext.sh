@@ -27,5 +27,5 @@ unzip openwebtext_180k.zip
 echo "${bold}-- Finished extraction!"
 
 echo "1.3.3 Removing compressed file...${normal}"
-# rm openwebtext_180k.zip
+rm openwebtext_180k.zip
 echo "${bold}-- Finished removing compressed dataset!${normal}"
