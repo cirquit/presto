@@ -22,15 +22,15 @@ echo "Compressed datasets are deleted after the download, resulting in ${bold}36
 
 ./download-datasets/01-01-download-imagenet.sh
 
-#./download-datasets/01-02-download-cube++.sh
+./download-datasets/01-02-download-cube++.sh
 
-#./download-datasets/01-03-download-openwebtext.sh
+./download-datasets/01-03-download-openwebtext.sh
 
-#./download-datasets/01-04-download-cream.sh
+./download-datasets/01-04-download-cream.sh
 
-#./download-datasets/01-05-download-commonvoice.sh
+./download-datasets/01-05-download-commonvoice.sh
 
-#./download-datasets/01-06-download-librispeech.sh
+./download-datasets/01-06-download-librispeech.sh
 
 echo "${bold}Finished downloading all datasets!${normal}"
 

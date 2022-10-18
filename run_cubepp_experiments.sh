@@ -13,7 +13,7 @@ do
   do
     echo 3 > /drop_caches
     compression="none"
-    samplecount=4890
+    samplecount=125
     runs=2
     python -u $pythonscript $threadcount $compression $samplecount $runs $pipelinemod
   done
@@ -31,10 +31,10 @@ do
   do
     echo 3 > /drop_caches
     threadcount=8
-    samplecount=4890
+    samplecount=125
     runs=1
     python -u $pythonscript $threadcount $compression $samplecount $runs $pipelinemod
   done
 done
 # 2.2 Clean up
-rm -rf /tmp/cubeplusplus*
+ rm -rf /tmp/cubeplusplus*

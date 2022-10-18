@@ -3,7 +3,7 @@
 bold=$(tput bold)
 normal=$(tput sgr0)
 
-URL_JPG="https://syncandshare.lrz.de/dl/fiGHVKBA6x3RbGaYZSfPWo/cube%2B%2B-small-isenko.zip"
+URL_JPG="https://syncandshare.lrz.de/dl/fiAoYifVsQbB8cvYDQTwUB/cubepp-small-isenko-v3.zip"
 
 echo "${bold}1.2.1 Downloading Cube++ dataset..."
 echo "From: ${URL}"
@@ -26,7 +26,7 @@ echo "${bold}--- Finished downloading!"
 echo "1.2.2 Extracting...${normal}"
 
 cd ${CUBEPP_DATASET_PATH}
-unzip cube++-small-isenko.zip
+unzip cubepp-small-isenko-v3.zip
 #for ID in 0; do
 #  echo "Extracting ./PNG${ID}/Cube++/PNG to ./PNG"
 #  unzip PNG${ID}.zip -d PNG${ID}

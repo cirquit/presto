@@ -20,7 +20,7 @@ synthetic=0
 run_all_experiments()
 {
     imagenet=1; cubepp=1; owt=1; cream=1;
-    commonvoice=1; librispeech=1; synthetic=1;
+    commonvoice=1; librispeech=1; #synthetic=1;
 }
 
 while [ -n "$1" ]

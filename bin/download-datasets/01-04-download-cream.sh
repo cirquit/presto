@@ -3,7 +3,7 @@
 bold=$(tput bold)
 normal=$(tput sgr0)
 
-URL="https://dataserv.ub.tum.de/s/m1554766/download"
+URL="https://syncandshare.lrz.de/dl/fiDKae6Lz5h4gT5ZDqEe4t/cream-small-isenko.zip"
 
 echo "${bold}1.4.1 Downloading CREAM dataset...(~ 2h)"
 echo "From: ${URL}"
