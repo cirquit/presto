@@ -1,10 +1,8 @@
 # PRESTO
 
 **Pre**processing **St**rategy **O**ptimizer is a library for TensorFlow that automates the generic pipelines’ profiling process.
-> Published at SIGMOD '22 (official link when it is uploaded)
-> [Where Is My Training Bottleneck? Hidden Trade-Offs in Deep Learning Preprocessing Pipelines](https://arxiv.org/abs/2202.08679) - Arxiv Link
-<details>
-  <summary> Preliminary BibTeX Entry </summary>
+> Published at SIGMOD '22
+> [Where Is My Training Bottleneck? Hidden Trade-Offs in Deep Learning Preprocessing Pipelines](https://dl.acm.org/doi/10.1145/3514221.3517848)
 
 ```
 @inbook{10.1145/3514221.3517848,
@@ -19,8 +17,6 @@ booktitle = {Proceedings of the 2022 International Conference on Management of D
 numpages = {15}
 }
 ```
-
-</details>
 
 # Reproducibility
 
